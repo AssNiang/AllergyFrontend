@@ -1,0 +1,35 @@
+<div class="pItem text-start p-2">
+  <div class="profile">
+    <img class="m-2 rounded-circle" [src]="profile">
+    <span class="m-2">{{firstname}} {{lastname}}</span>
+  </div>
+  <div class="m-2">
+    <span class="fw-bolder">Allergie</span> : {{allergyName}}
+  </div>
+  <div class="m-2">
+    <span class="fw-bolder">Descriptif</span> : {{allergyDescription}}
+  </div>
+
+  <ngb-carousel *ngIf="images" class="text-center">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" alt="Random first slide">
+      </div>
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" alt="Random second slide">
+      </div>
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </ng-template>
+
+  </ngb-carousel>
+
+</div>
