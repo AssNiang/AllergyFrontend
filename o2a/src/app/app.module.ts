@@ -16,6 +16,10 @@ import { routingComponents } from "./app-routing.module";
 import { HomeAppliComponent } from './components/home-appli/home-appli.component';
 import { PostItemComponent } from './components/post-item/post-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LsbDisconnectedComponent } from './components/lsb-disconnected/lsb-disconnected.component';
+import { LsbConnectedUserComponent } from './components/lsb-connected-user/lsb-connected-user.component';
+import { LsbConnectedSpecialistComponent } from './components/lsb-connected-specialist/lsb-connected-specialist.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -27,7 +31,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ContentComponent,
     routingComponents,
     HomeAppliComponent,
-    PostItemComponent
+    PostItemComponent,
+    LsbDisconnectedComponent,
+    LsbConnectedUserComponent,
+    LsbConnectedSpecialistComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +45,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatIconModule,
     FormsModule,
     NgbModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

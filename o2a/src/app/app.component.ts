@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'o2a';
+  tu! : String;
+
+  getUserType(tu: String){
+    this.tu = tu;
+  }
 }

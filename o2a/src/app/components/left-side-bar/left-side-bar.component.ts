@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-left-side-bar',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftSideBarComponent implements OnInit {
 
+  //@Input() typeUtilisateur! : String;
+  typeUtilisateur = "disconnected";
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
