@@ -20,32 +20,7 @@ export class PostItemComponent implements OnInit {
       de juillet à octobre (pollen de l’herbe à poux).
 
   Les changements climatiques allongent la période pendant laquelle les plantes et les arbres produisent du pollen. Par conséquent, la période des allergies risque elle aussi de se prolonger au cours des prochaines années.
-  .nl.
-  Symptômes
-
-  La rhinite saisonnière cause différents symptômes, qui sont principalement provoqués par l’inhalation du pollen. Les symptômes peuvent prendre les formes suivantes :
-
-      aggravation de l’asthme, si la personne en souffre déjà;
-      congestion nasale;
-      signes de conjonctivite :
-          démangeaisons des yeux;
-          écoulement purulent des yeux;
-          gonflement des paupières;
-          larmoiement;
-          rougeur des yeux;
-      écoulement nasal clair et abondant;
-      éternuements à répétition;
-      maux de tête;
-      picotements et démangeaisons du nez, de la gorge et des oreilles.
-
-  Les effets secondaires de la rhinite saisonnière affectent aussi la qualité de vie de la personne allergique et de sa famille. Du printemps à l’automne, les activités quotidiennes ou sportives, les loisirs et le rendement au travail ou à l’école peuvent ainsi être perturbés par :
-
-      de la fatigue;
-      de l’irritabilité;
-      des problèmes de concentration;
-      des troubles du sommeil.
-
-  Si vous avez des questions concernant les symptômes de la rhinite saisonnière, communiquez avec Info-Santé 811.`;
+  `;
 
   //images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   public images : String[] = [

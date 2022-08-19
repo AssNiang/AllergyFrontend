@@ -16,6 +16,7 @@ import { routingComponents } from "./app-routing.module";
 import { HomeAppliComponent } from './components/home-appli/home-appli.component';
 import { PostItemComponent } from './components/post-item/post-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListPostsComponent } from './components/list-posts/list-posts.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ContentComponent,
     routingComponents,
     HomeAppliComponent,
-    PostItemComponent
+    PostItemComponent,
+    ListPostsComponent
   ],
   imports: [
     BrowserModule,

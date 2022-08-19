@@ -105,5 +105,8 @@
       }
     }
   },
-  "defaultProject": "o2a"
+  "defaultProject": "o2a",
+  "cli": {
+    "analytics": false
+  }
 }
