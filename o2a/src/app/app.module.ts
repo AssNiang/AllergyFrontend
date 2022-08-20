@@ -17,6 +17,7 @@ import { HomeAppliComponent } from './components/home-appli/home-appli.component
 import { PostItemComponent } from './components/post-item/post-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListPostsComponent } from './components/list-posts/list-posts.component';
+import { ConnectedUserComponent } from './components/connected-user/connected-user.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ListPostsComponent } from './components/list-posts/list-posts.component
     routingComponents,
     HomeAppliComponent,
     PostItemComponent,
-    ListPostsComponent
+    ListPostsComponent,
+    ConnectedUserComponent
   ],
   imports: [
     BrowserModule,

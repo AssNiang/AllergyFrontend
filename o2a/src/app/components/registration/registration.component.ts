@@ -12,10 +12,10 @@ export class RegistrationComponent implements OnInit {
   // userInfos = {};
 
 
-  submit(login: NgForm){
-    // console.log("Submitted", login.value)
-    // this.userInfos = login.value;
-    login.reset();
+  submit(register: NgForm){
+    // console.log("Submitted", register.value)
+    // this.userInfos = register.value;
+    register.reset();
   }
 
   public togglePasswordVisibility(): void {
