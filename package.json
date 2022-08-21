@@ -1,0 +1,21 @@
+{
+  "name": "o2a_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": " nodemon server"
+  },
+  "author": "O2A",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.2",
+    "mongoose-unique-validator": "^3.1.0",
+    "nodemon": "^2.0.19",
+    "validator": "^13.7.0"
+  }
+}
