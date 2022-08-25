@@ -7,7 +7,7 @@ const specialistSchema = new mongoose.Schema(
             required: true
         },
 
-        following:  {
+        followings:  {
             type : [String]
         },
     

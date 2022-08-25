@@ -6,10 +6,14 @@ const allergieFicheSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        specialistId:  {
+        patientId:  {
             type: String,
             required: true,
         },
+        specialistId:  {
+            type: String,
+            required: true,
+        }, 
         chatBot:  {
             type : [
                 {
@@ -32,6 +36,11 @@ const allergieFicheSchema = new mongoose.Schema(
                 },
             ],
             required: true,
+        },
+        message: {
+            type: String,
+            trim: true,
+            maxlength: 500,
         }
     },
     {
@@ -39,4 +48,4 @@ const allergieFicheSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model('fiche', allergieFicheSchema);
+module.exports = mongoose.model('ficheAllergies', allergieFicheSchema);

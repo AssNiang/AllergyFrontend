@@ -1,8 +1,8 @@
-POST  http://localhost:5000/api/user/register
+POST  http://localhost:5000/api/user/6303d4dafc3e9785a19f5f77
 
 content_type: "application/json"
 {
     "user_name": "abdou1",
     "email": "abk1@gmail.com",
-    "password": "test1"
+    "password": "test123"
 }

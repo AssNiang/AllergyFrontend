@@ -64,11 +64,7 @@ const userSchema = new mongoose.Schema(
         default: false
       },
 
-		 is_deleted:{
-      type: Boolean,
-      default: false
-     },
-     picture: {
+      picture: {
       type: String,
       default: "./uploads/profil/random-user.png",
       },
@@ -101,6 +97,11 @@ const userSchema = new mongoose.Schema(
     }, 
 
     is_specialist: {
+      type: Boolean,
+      default: false
+    },
+
+    is_admin: {
       type: Boolean,
       default: false
     },

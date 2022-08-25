@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+ const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema(
   {
@@ -44,16 +44,16 @@ const PostSchema = new mongoose.Schema(
       ],
       required: true,
     },
-    article: {
-        type: [
-          {
-            authorId:String,
-            text: String,
-            timestamp: Number,
-          }
-        ],
-        required: true,
-      },
+    // articles: {
+    //     type: [
+    //       {
+    //         authorId:String,
+    //         text: String,
+    //         timestamp: Number,
+    //       }
+    //     ],
+    //     required: true,
+    //   },
   },
   {
     timestamps: true,
