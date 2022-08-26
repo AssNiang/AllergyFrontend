@@ -20,6 +20,8 @@ import { LsbDisconnectedComponent } from './components/lsb-disconnected/lsb-disc
 import { LsbConnectedUserComponent } from './components/lsb-connected-user/lsb-connected-user.component';
 import { LsbConnectedSpecialistComponent } from './components/lsb-connected-specialist/lsb-connected-specialist.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AllergeneComponent } from './components/allergene/allergene.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PostItemComponent,
     LsbDisconnectedComponent,
     LsbConnectedUserComponent,
-    LsbConnectedSpecialistComponent
+    LsbConnectedSpecialistComponent,
+    AllergeneComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
