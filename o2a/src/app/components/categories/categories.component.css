@@ -11,7 +11,7 @@ body,html
 
 img
 {
-    width:285px;
+    width:400px;
     height:200px;
     border-radius: 15px 15px 0 0;
 }
@@ -19,7 +19,7 @@ img
 .card
 {
     background-color:#814069;
-    width: 18rem;
+    width: 25rem;
     display: block;
     margin-left:auto;
     margin-right:auto;  
