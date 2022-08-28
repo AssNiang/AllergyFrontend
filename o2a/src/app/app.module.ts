@@ -18,6 +18,7 @@ import { PostItemComponent } from './components/post-item/post-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListPostsComponent } from './components/list-posts/list-posts.component';
 import { ConnectedUserComponent } from './components/connected-user/connected-user.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ConnectedUserComponent } from './components/connected-user/connected-us
     HomeAppliComponent,
     PostItemComponent,
     ListPostsComponent,
-    ConnectedUserComponent
+    ConnectedUserComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,

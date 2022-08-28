@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LeftSideBarComponent } from '../left-side-bar/left-side-bar.component';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,13 @@ export class LoginComponent implements OnInit {
     // console.log("Submitted", login.value)
     // this.userInfos = login.value;
     login.reset();
+
+    /*
+      - add verifications before switching (user found)
+      - get the userId, pass it through the url
+      - get the user type to initialize `LeftSideBarComponent.typeUser`
+    */
+    LeftSideBarComponent.typeUser = "admin"; // just for test purposes
     this.router.navigate(['connected-user', this.id]);
   }
 
