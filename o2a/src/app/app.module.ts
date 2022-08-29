@@ -19,12 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LsbDisconnectedComponent } from './components/lsb-disconnected/lsb-disconnected.component';
 import { LsbConnectedUserComponent } from './components/lsb-connected-user/lsb-connected-user.component';
 import { LsbConnectedSpecialistComponent } from './components/lsb-connected-specialist/lsb-connected-specialist.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AllergeneComponent } from './components/allergene/allergene.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
 
 @NgModule({
   declarations: [
@@ -51,13 +47,11 @@ import { far } from '@fortawesome/free-regular-svg-icons';
     MatIconModule,
     FormsModule,
     NgbModule,
-    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor() {
-    library.add(fas, far);
   }
  }
