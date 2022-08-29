@@ -2,3 +2,7 @@
   height: 100%;
   border-top: solid 1px black;
 }
+
+.header {
+  margin: 50px;
+}

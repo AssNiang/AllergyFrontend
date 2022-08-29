@@ -22,7 +22,9 @@ import { LsbConnectedSpecialistComponent } from './components/lsb-connected-spec
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AllergeneComponent } from './components/allergene/allergene.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 
 @NgModule({
   declarations: [
@@ -54,4 +56,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    library.add(fas, far);
+  }
+ }
