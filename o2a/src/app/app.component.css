@@ -2,3 +2,8 @@
   height: 100%;
   border-top: solid 1px black;
 }
+
+.header{
+  
+  border-bottom : solid 2px #814069;
+}
