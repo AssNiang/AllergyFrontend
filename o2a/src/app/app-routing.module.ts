@@ -5,6 +5,7 @@ import { ConnectedUserComponent } from "./components/connected-user/connected-us
 import { HomeAppliComponent } from "./components/home-appli/home-appli.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegistrationComponent } from "./components/registration/registration.component";
+import { CategoriesComponent } from "./components/categories/categories.component";
 
 const routes: Routes = [
   { path: '', redirectTo:'homeAppli', pathMatch:'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'homeAppli', component: HomeAppliComponent },
   { path: 'connected-user/:id', component: ConnectedUserComponent },
+  { path: 'categories', component: CategoriesComponent},
 ];
 
 @NgModule({
@@ -22,5 +24,6 @@ export class AppRoutingModule { }
 export const routingComponents = [
   RegistrationComponent,
   LoginComponent,
-  HomeAppliComponent
+  HomeAppliComponent,
+  CategoriesComponent
 ]
