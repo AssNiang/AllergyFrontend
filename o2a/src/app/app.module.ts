@@ -21,6 +21,7 @@ import { LsbConnectedUserComponent } from './components/lsb-connected-user/lsb-c
 import { LsbConnectedSpecialistComponent } from './components/lsb-connected-specialist/lsb-connected-specialist.component';
 import { AllergeneComponent } from './components/allergene/allergene.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
     LsbConnectedUserComponent,
     LsbConnectedSpecialistComponent,
     AllergeneComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
