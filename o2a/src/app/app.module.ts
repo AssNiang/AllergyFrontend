@@ -22,6 +22,7 @@ import { ConnectedUserComponent } from './components/connected-user/connected-us
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { AllergenesComponent } from './components/allergenes/allergenes.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { HeaderConnecteComponent } from './components/header-connecte/header-connecte.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
     ConnectedUserComponent,
     CreatePostComponent,
     AllergenesComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    HeaderConnecteComponent
   ],
   imports: [
     BrowserModule,
