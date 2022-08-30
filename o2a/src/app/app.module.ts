@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RightSideBarComponent } from './components/right-side-bar/right-side-bar.component';
@@ -19,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListPostsComponent } from './components/list-posts/list-posts.component';
 import { ConnectedUserComponent } from './components/connected-user/connected-user.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { AllergenesComponent } from './components/allergenes/allergenes.component';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     PostItemComponent,
     ListPostsComponent,
     ConnectedUserComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    AllergenesComponent
   ],
   imports: [
     BrowserModule,
