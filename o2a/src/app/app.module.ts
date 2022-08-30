@@ -21,6 +21,7 @@ import { ListPostsComponent } from './components/list-posts/list-posts.component
 import { ConnectedUserComponent } from './components/connected-user/connected-user.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { AllergenesComponent } from './components/allergenes/allergenes.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AllergenesComponent } from './components/allergenes/allergenes.componen
     ListPostsComponent,
     ConnectedUserComponent,
     CreatePostComponent,
-    AllergenesComponent
+    AllergenesComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
