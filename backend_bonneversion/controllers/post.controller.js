@@ -38,3 +38,11 @@ module.exports.commentPost = (req, res) => {
 module.exports.deleteCommentPost = (req, res) => {
  
 };
+
+module.exports.deletePost = (req, res) => {
+ 
+};
+
+module.exports.editCommentPost = (req, res) => {
+ 
+};
