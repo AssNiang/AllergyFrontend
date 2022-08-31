@@ -23,6 +23,7 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
 import { AllergenesComponent } from './components/allergenes/allergenes.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HeaderConnecteComponent } from './components/header-connecte/header-connecte.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { HeaderConnecteComponent } from './components/header-connecte/header-con
     CreatePostComponent,
     AllergenesComponent,
     CategoriesComponent,
-    HeaderConnecteComponent
+    HeaderConnecteComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

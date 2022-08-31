@@ -31,7 +31,9 @@
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [ 
+              "src/app/components/profil/profil.js"
+            ]
           },
           "configurations": {
             "production": {
