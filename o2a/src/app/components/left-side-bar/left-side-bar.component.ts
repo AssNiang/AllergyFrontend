@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LeftSideBarComponent implements OnInit {
 
   static typeUser : String = "unknown";
-  lsbRef = LeftSideBarComponent;
+  public lsbRef = LeftSideBarComponent;
 
   constructor() {}
 

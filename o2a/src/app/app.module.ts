@@ -25,6 +25,7 @@ import { AllergenesComponent } from './components/allergenes/allergenes.componen
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HeaderConnecteComponent } from './components/header-connecte/header-connecte.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ProfilComponent } from './components/profil/profil.component';
     AllergenesComponent,
     CategoriesComponent,
     HeaderConnecteComponent,
-    ProfilComponent
+    ProfilComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

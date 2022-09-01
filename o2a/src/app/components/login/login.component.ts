@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   registerIcon: string = '../../../assets/images/register-icon2.jpg';
   public showPassword: boolean = false;
   // userInfos = {};
-  id = 0;
+  //id = 0;
 
   constructor(private router: Router, private _userService: UserService) {}
 
@@ -21,8 +21,12 @@ export class LoginComponent implements OnInit {
     try {
       this._userService.signInUser(login.value).subscribe((data) => {
 
+        // this._userService.getUserById(data.id).subscribe(
+        //   data => {console.log(data);}
+        // );
 
-        console.log(data);
+        console.log(data.id);
+
         login.reset();
 
         /*
@@ -31,7 +35,8 @@ export class LoginComponent implements OnInit {
           - get the user type to initialize `LeftSideBarComponent.typeUser`
         */
         LeftSideBarComponent.typeUser = 'admin'; // just for test purposes
-        this.router.navigate(['connected-user', this.id]);
+        this.router.navigate(['connected-user', data.id]);
+
       });
     } catch (error) {
       console.log(error);
