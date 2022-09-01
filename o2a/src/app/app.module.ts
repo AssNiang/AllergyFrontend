@@ -26,6 +26,7 @@ import { HeaderConnecteComponent } from './components/header-connecte/header-con
 import { ProfilComponent } from './components/profil/profil.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotificationComponent } from './components/notification/notification.component';
+import { DiscussionComponent } from './components/discussion/discussion.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { NotificationComponent } from './components/notification/notification.co
     HeaderConnecteComponent,
     ProfilComponent,
     NotificationComponent,
+    DiscussionComponent,
   ],
   imports: [
     BrowserModule,
