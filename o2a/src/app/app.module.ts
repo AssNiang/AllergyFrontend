@@ -27,6 +27,8 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotificationComponent } from './components/notification/notification.component';
 import { DiscussionComponent } from './components/discussion/discussion.component';
+import { SenderComponent } from './components/sender/sender.component';
+import { RecieverComponent } from './components/reciever/reciever.component';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { DiscussionComponent } from './components/discussion/discussion.componen
     ProfilComponent,
     NotificationComponent,
     DiscussionComponent,
+    SenderComponent,
+    RecieverComponent,
   ],
   imports: [
     BrowserModule,

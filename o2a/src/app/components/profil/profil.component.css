@@ -8,11 +8,8 @@
     position: absolute;
     width: 800px;
     height: 800px;
-    margin: auto;
-    top: 53%;
-    left: 46%;
-    text-align: center;
-    transform: translate(-50%, -50%);
+    margin-top: 40px;
+    margin-bottom: 10px;
   } 
   .myRightCtn
   {
