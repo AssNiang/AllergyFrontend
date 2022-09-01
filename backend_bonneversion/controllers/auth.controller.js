@@ -17,18 +17,23 @@ module.exports.signUp = (req, res) => {
                 .then(
                     hash => {
                         const user = new UserModel({
-                            user_name: req.body.user_name,
+                            last_name: req.body.last_name,
+                            first_name: req.body.first_name,
+                            address: req.body.address,
                             email: req.body.email,
-                            password: hash
+                            user_name: req.body.user_name,
+                            password: hash,
                         });
                         user.save()
                         .then(() =>res.status(201).json({user: user}))
                         .catch((error) => res.status(400).send({error}));
                      }
-                 ).catch((error) => res.status(400).send({error}));
+                 ).catch((err) => {
+                    const errors = signUpErrors(err);
+                    res.status(200).send({errors});
+                });
          }catch(err){
-            const errors = signUpErrors(err);
-            res.status(200).send({errors});
+            res.status(200).send({err});
         }
 } ;
 module.exports.signIn= async (req, res ) => {
@@ -41,7 +46,7 @@ module.exports.signIn= async (req, res ) => {
             if (auth) {
                 const token = createToken(user._id);
                 res.cookie('jwt', token, {httpOnly: true, maxAge});
-                return res.status(200).json({message: "user " + user.user_name + " is connected!"}); 
+                return res.status(200).json({id: user._id}); 
             }
             throw Error('incorrect password');
 
