@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-// const { isEmail } = require('validator');
+const { isEmail } = require('validator');
 // const { isMobilePhone } = require('validator');
-// const uniqueValidator = require('mongoose-unique-validator');
-const bcrypt = require('bcrypt');
+const uniqueValidator = require('mongoose-unique-validator');
+// const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema(
   {
@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       minLength: 3,
       maxLength: 55,
-      unique: false,
       trim: true,
     },
     
@@ -18,15 +17,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       minLength: 3,
       maxLength: 55,
-      unique: false,
       trim: true,
     },
     
     address: {
       type: String,
-    	minlength: 3,
+    	minLength: 3,
     	maxLength: 255,
-    	unique: false,
     	trim: true,
     },
 
@@ -37,25 +34,23 @@ const userSchema = new mongoose.Schema(
         maxLength: 55,
         unique: true,
         trim: true,
-        // default: '    ',
       },
       
       email: {
         type: String,
         required: true,
-        // validate: [isEmail],
+        validate: [isEmail],
         lowercase: true,
         unique: true,
         trim: true,
-        // default: '',
       },
       
       password: {
         type: String,
         required: true,
         max: 1024,
-        minlength: 6,
-        // default: '      ',
+        minLength: 6,
+        unique: true
       },
 
 
@@ -69,20 +64,21 @@ const userSchema = new mongoose.Schema(
       default: "./uploads/profil/random-user.png",
       },
   
-    phone_number: {
-      type: String,
-      // validate: [isMobilePhone],
-      unique: true,
-      max: 15,
-      minlength: 5,
-      trim: true,
-      },
+    // phone_number: {
+    //   type: String,
+    //   // validate: [isMobilePhone],
+    //   // unique: true,
+    //   required: true,
+    //   default: "xx xxx xx xx",
+    //   max: 20,
+    //   minlength: 5,
+    //   trim: true,
+    //   },
 
     date_of_birth: {
       type: Date,
       minLength: 3,
       maxLength: 55,
-      unique: false,
       trim: true,
     },
     
@@ -139,7 +135,7 @@ const userSchema = new mongoose.Schema(
 //   throw Error('incorrect email')
 // };
 
-// userSchema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator);
 
 const UserModel = mongoose.model("user", userSchema);
 module.exports = UserModel;

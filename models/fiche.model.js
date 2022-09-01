@@ -36,11 +36,6 @@ const allergieFicheSchema = new mongoose.Schema(
                 },
             ],
             required: true,
-        },
-        message: {
-            type: String,
-            trim: true,
-            maxlength: 500,
         }
     },
     {

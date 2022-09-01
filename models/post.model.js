@@ -8,6 +8,7 @@ const PostSchema = new mongoose.Schema(
     },
     statut: {
         type: String,
+        required: true,
         enum: ['public', 'private'],
         default: 'public',
    },

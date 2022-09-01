@@ -4,12 +4,14 @@ const multer = require("multer");
 const upload = multer();
 
 router.get('/', postController.readPost);
-router.get('/historique-posts', postController.getUserPosts);
+router.get('/historique-posts/:id', postController.getUserPosts);
 router.post('/', upload.single("file"), postController.createPost);
 router.put('/:id', postController.updatePost);
 router.delete('/:id', postController.deletePost);
 router.patch('/like-post/:id', postController.likePost);
 router.patch('/unlike-post/:id', postController.unlikePost);
+router.patch('/report-post/:id', postController.reportPost);
+router.patch('/unreport-post/:id', postController.unReportPost); 
 
 // comments
 router.patch('/comment-post/:id', postController.commentPost);
