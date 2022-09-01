@@ -12,10 +12,19 @@ body {
 
 .m-b-50 {
     margin-bottom: 50px;
+    text-align: left;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 35px;
 }
 
 .dark-link {
-    color: #333;
+    padding: 10px;
+    border-radius:25px;
+    border:2px solid #814069;
+    background-color:#b68ea7;
 }
 
 .heading-line {
