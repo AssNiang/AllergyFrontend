@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { UserService } from 'src/app/services/user.service';
 import { LeftSideBarComponent } from '../left-side-bar/left-side-bar.component';
 
@@ -20,10 +21,21 @@ export class LoginComponent implements OnInit {
   submit(login: NgForm) {
     try {
       this._userService.signInUser(login.value).subscribe((data) => {
-
-        // this._userService.getUserById(data.id).subscribe(
-        //   data => {console.log(data);}
-        // );
+        //get user by id
+        this._userService.getUserById(data.id).subscribe(
+          user => {
+            console.log("user:", user);
+            if(user.is_specialist){
+              AppComponent.typeUser = LeftSideBarComponent.typeUser = 'specialist';
+            }
+            else if(user.is_admin){
+              AppComponent.typeUser = LeftSideBarComponent.typeUser = 'admin';
+            }
+            else{
+              AppComponent.typeUser = LeftSideBarComponent.typeUser = 'connected';
+            }
+          }
+        );
 
         console.log(data.id);
 
@@ -34,9 +46,9 @@ export class LoginComponent implements OnInit {
           - get the userId, pass it through the url
           - get the user type to initialize `LeftSideBarComponent.typeUser`
         */
-        LeftSideBarComponent.typeUser = 'admin'; // just for test purposes
-        this.router.navigate(['connected-user', data.id]);
 
+        //LeftSideBarComponent.typeUser = 'admin'; // just for test purposes
+        this.router.navigate(['connected-user', data.id]);
       });
     } catch (error) {
       console.log(error);

@@ -11,14 +11,15 @@ import { UserService } from 'src/app/services/user.service';
 export class RegistrationComponent implements OnInit {
   registerIcon: string = '../../../assets/images/register-icon2.jpg';
   public showPassword: boolean = false;
-  pwdConfirmed: boolean = false;
+  notValid: boolean = false;
   // userInfos = {};
 
   constructor(private router: Router, private _userService: UserService) {}
 
   submit(register: NgForm) {
-    if(register.value.password == register.value.passwordConfirmation){
-      this.pwdConfirmed = true;
+    if(register.value.password != register.value.passwordConfirmation){
+      this.notValid = true;
+      return;
     }
 
     try {

@@ -7,11 +7,13 @@
   <form #register="ngForm" (ngSubmit)="submit(register)" class="w-75 m-auto my-3">
     <div class="form-group text-center">
 
+      <div class="text-danger" *ngIf="notValid">Données saisies invalides, veuillez vérifier à nouveau.</div>
+
       <div class="row">
         <div class="col">
           <input
             type="text"
-            name="firstname"
+            name="first_name"
             class="form-control"
             placeholder="Prénom"
             ngModel
@@ -20,7 +22,7 @@
         <div class="col">
           <input
             type="text"
-            name="lastname"
+            name="last_name"
             class="form-control"
             placeholder="Nom"
             ngModel
@@ -36,13 +38,13 @@
         ngModel
       >
 
-      <input
+      <!-- <input
         type="text"
         name="phone"
         class="form-control"
         placeholder="Téléphone"
         ngModel
-      >
+      > -->
 
       <input
         type="text"
@@ -52,7 +54,7 @@
         ngModel
       >
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col">
           <input
             type="text"
@@ -72,7 +74,7 @@
             ngModel
           >
         </div>
-      </div>
+      </div> -->
 
 
 

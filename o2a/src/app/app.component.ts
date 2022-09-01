@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'o2a';
+
+  static typeUser : String = 'unknown';
+  appRef = AppComponent;
+
+
 }

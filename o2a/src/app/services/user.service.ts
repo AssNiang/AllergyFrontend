@@ -20,6 +20,10 @@ export class UserService {
     return this.http.post(this.baseUrl + '/login', infos);
   }
 
+  logoutUser():Observable<any>{
+    return this.http.get<any>(this.baseUrl+'/logout');
+  }
+
   getUsers():Observable<any[]>{
     return this.http.get<any[]>(this.baseUrl+'/');
   }
