@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
           - get the userId, pass it through the url
           - get the user type to initialize `LeftSideBarComponent.typeUser`
         */
-        //LeftSideBarComponent.typeUser = 'admin'; // just for test purposes
-        //this.router.navigate(['connected-user', this.id]);
+        LeftSideBarComponent.typeUser = 'admin'; // just for test purposes
+        this.router.navigate(['connected-user', this.id]);
       });
     } catch (error) {
       console.log(error);
