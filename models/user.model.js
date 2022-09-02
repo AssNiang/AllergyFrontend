@@ -108,6 +108,9 @@ const userSchema = new mongoose.Schema(
     //posts signales
     reports : {
       type : [String]
+    },
+    followers : {
+      type : [String]
     }
   },
 
