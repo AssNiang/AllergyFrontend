@@ -26,6 +26,9 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { HeaderConnecteComponent } from './components/header-connecte/header-connecte.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { DiscussionComponent } from './components/discussion/discussion.component';
+import { SenderComponent } from './components/sender/sender.component';
+import { ReceiverComponent } from './components/receiver/receiver.component';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { NotificationComponent } from './components/notification/notification.co
     CategoriesComponent,
     HeaderConnecteComponent,
     ProfilComponent,
-    NotificationComponent
+    NotificationComponent,
+    DiscussionComponent,
+    SenderComponent,
+    ReceiverComponent
   ],
   imports: [
     BrowserModule,
