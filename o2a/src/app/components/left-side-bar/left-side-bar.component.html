@@ -20,7 +20,7 @@
   <div [routerLink]="['notification', lsbRef.user_id]" routerLinkActive="active">Notifications</div>
   <div routerLink="" routerLinkActive="">Historique Posts</div>
   <div routerLink="" routerLinkActive="">Localiser Structures</div>
-  <div routerLink="" routerLinkActive="">Se déconnecter</div>
+  <div (click)="disconnect()">Se déconnecter</div>
 </div>
 
 <div class="container" *ngIf="lsbRef.typeUser == 'specialist'">
