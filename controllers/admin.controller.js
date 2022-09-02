@@ -5,16 +5,21 @@ const PostModel = require('../models/post.model');
 const SpecialistModel = require('../models/specialist.model');
 
 
-module.exports.createSpecialist = (req, res) => {
-  const {user_id, professionnal_adress, workplace, job} = req.body;
-  const user = UserModel.findById(user_id);
-  const matricule = user.user_name + " " + Date.now() + "o2a"; 
-  if (!ObjectID.isValid(user_id)){
-    return res.status(400).send("L'utilisateur d'id " + user_id +" n'existe pas: " );
+module.exports.createSpecialist = async (req, res) => {
+  const {userId, professionnal_address, job, workplace} = req.body;
+  const matricule = "O2A_specialist" + Date.now() + "o2a"; 
+  if (!ObjectID.isValid(userId)){
+    return res.status(400).send("L'utilisateur d'id " + userId +" n'existe pas: " );
   } try {
-      const specialist = new SpecialistModel({user_id, matricule, professionnal_adress, workplace, job});
-      UserModel.findByIdAndUpdate(
-        user_id,
+      const specialist = new SpecialistModel({
+        userId:userId, 
+        matricule:matricule, 
+        professionnal_address:professionnal_address, 
+        workplace:workplace, 
+        job:job
+      });
+       UserModel.findByIdAndUpdate(
+        userId,
         {
           $set: {
             is_specialist: true
@@ -26,7 +31,7 @@ module.exports.createSpecialist = (req, res) => {
         }
         ); 
       specialist.save()
-      .then(() => {  return res.status(201).json({id: req.body.user_id});})
+      .then(() => {  return res.status(201).json({id: req.body.userId});})
       .catch(err => res.status(500).send({ message: err }));
      
   }
@@ -35,8 +40,8 @@ module.exports.createSpecialist = (req, res) => {
   }
 } ;
 
-module.exports.getAllReportedPosts = async (req, res) => {
-    UserModel.find({is_patient:True}, (err, docs) => {
+module.exports.getReportedPosts = async (req, res) => {
+    PostModel.find({reporters:{$size:1}}, (err, docs) => {
         if (!err) res.send(docs);
         else console.log("Error to get data : " + err);
       });
