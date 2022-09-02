@@ -18,9 +18,8 @@ const specialistSchema = new mongoose.Schema(
                 required: true,
             },
         
-        proffessionnal_address: {
+        professionnal_address: {
                 type: String,
-                unique: false,
                 required: true,
             },
     

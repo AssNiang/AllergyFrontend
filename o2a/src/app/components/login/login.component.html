@@ -1,5 +1,5 @@
 <mat-card>
-  <h2>Inscription</h2>
+  <h2>Connexion</h2>
   <div>
     <img [src]="registerIcon" alt="img_not_found" class="shadw">
   </div>
@@ -35,10 +35,12 @@
         ngModel
       >
 
-      <div class="text-start">
+      <div class="text-start position-relative">
         <mat-icon matSuffix (click)="togglePasswordVisibility()">
           {{showPassword?'visibility_off':'visibility'}}
         </mat-icon>
+
+        <span class="position-absolute bottom-25 m-1">Visibilité du mot de passe</span>
 
       </div>
 

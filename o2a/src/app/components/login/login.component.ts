@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
         //get user by id
         this._userService.getUserById(data.id).subscribe(
           user => {
-            console.log("user:", user);
+            console.log("user:", user); // just for test
+            LeftSideBarComponent.user_id = data.id;
             if(user.is_specialist){
               AppComponent.typeUser = LeftSideBarComponent.typeUser = 'specialist';
             }

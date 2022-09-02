@@ -107,10 +107,12 @@
 
       >
 
-      <div class="text-start">
+      <div class="text-start position-relative">
         <mat-icon matSuffix (click)="togglePasswordVisibility()">
           {{showPassword?'visibility_off':'visibility'}}
         </mat-icon>
+
+        <span class="position-absolute bottom-25 m-1">Visibilité du mot de passe</span>
 
       </div>
 
@@ -137,7 +139,7 @@
     </div>
   </form>
 
-  <div>{{ register.value | json }}</div>
+  <!-- <div>{{ register.value | keyvalue |json }}</div> -->
 
 
 </mat-card>
