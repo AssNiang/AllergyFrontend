@@ -8,6 +8,7 @@ const PostSchema = new mongoose.Schema(
     },
     statut: {
         type: String,
+        required: true,
         enum: ['public', 'private'],
         default: 'public',
    },
@@ -39,21 +40,38 @@ const PostSchema = new mongoose.Schema(
           commenterId:String,
           commenterUserName: String,
           text: String,
+          // likers: {
+          //   type: [String],
+          //   required: true,
+          // },
+          // reporters: {
+          //     type: [String],
+          //     required: true,
+          //   },
+          //   comments: {
+          //     type: [
+          //       {
+          //         commenterId:String,
+          //         commenterUserName: String,
+          //         text: String,
+          //         likers: {
+          //           type: [String],
+          //           required: true,
+          //         },
+          //         reporters: {
+          //             type: [String],
+          //             required: true,
+          //           },
+          //         timestamp: Number,
+          //       }
+              // ],
+              // required: true,
+            // },
           timestamp: Number,
         }
       ],
       required: true,
     },
-    // articles: {
-    //     type: [
-    //       {
-    //         authorId:String,
-    //         text: String,
-    //         timestamp: Number,
-    //       }
-    //     ],
-    //     required: true,
-    //   },
   },
   {
     timestamps: true,

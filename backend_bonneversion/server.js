@@ -25,15 +25,6 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-// app.use(bodyParser.urlencoded({extended: true}));
-
-
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-//   next();
-// });
 
 // jwt
 app.get('*', checkUser);
@@ -45,7 +36,7 @@ app.get('/jwtid', requiredAuth, (req, res) => {
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
 app.use('/api/user/specialist', specialistRoutes);
-app.use('api/user/admin', adminRoutes);
+app.use('/api/user/admin', adminRoutes);
 
 //server
 app.listen(process.env.PORT, ()=> {
