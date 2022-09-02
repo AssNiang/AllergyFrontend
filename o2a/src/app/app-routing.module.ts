@@ -12,12 +12,14 @@ import { NotificationComponent } from "./components/notification/notification.co
 const routes: Routes = [
   { path: '', redirectTo:'homeAppli', pathMatch:'full' },
   { path: 'registration', component: RegistrationComponent },
+  { path: 'registration/:id', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'categories', component: CategoriesComponent},
+  { path: 'categories/:id', component: CategoriesComponent},
   { path: 'homeAppli', component: HomeAppliComponent },
   { path: 'connected-user/:id', component: ConnectedUserComponent },
-  { path: 'categories', component: CategoriesComponent},
-  { path: 'profil', component: ProfilComponent},
-  { path: 'notification', component: NotificationComponent},
+  { path: 'profil/:id', component: ProfilComponent},
+  { path: 'notification/:id', component: NotificationComponent},
 ];
 
 @NgModule({

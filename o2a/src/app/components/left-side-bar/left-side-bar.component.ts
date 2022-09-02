@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-left-side-bar',
@@ -10,9 +11,10 @@ export class LeftSideBarComponent implements OnInit {
   static typeUser : String = "unknown";
   lsbRef = LeftSideBarComponent;
 
-  constructor() {}
+  static user_id : String;
 
-  ngOnInit(): void {
-  }
+  constructor(private router : Router) { }
+
+  ngOnInit(): void { }
 
 }

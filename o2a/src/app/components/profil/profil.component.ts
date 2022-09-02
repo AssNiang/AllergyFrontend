@@ -1,15 +1,45 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
-  styleUrls: ['./profil.component.css']
+  styleUrls: ['./profil.component.css'],
 })
 export class ProfilComponent implements OnInit {
+  user!: User;
+  user_id!: string;
+  showPassword: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router, private _userService: UserService) {}
 
   ngOnInit(): void {
+    this.user_id = this.router.url.split('/')[2];
+    //console.log(this.user_id);
+
+    this._userService.getUserById(this.user_id).subscribe((data) => {
+      this.user = data;
+      console.log(this.user.email);
+    });
   }
 
+  onUpdate(update: NgForm){
+    try {
+      update.value.id = this.user._id;
+
+      console.log(update.value)
+      this._userService.updateUser(update.value).subscribe(
+        data => {console.log(data);}
+      )
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
 }

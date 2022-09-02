@@ -27,8 +27,11 @@ module.exports.updateUser = (req, res) => {
           first_name: req.body.first_name,
           last_name: req.body.last_name,
           address: req.body.address,
-          date_of_birth: req.body.date_of_birth,
-          sexe: req.body.sexe,
+          //date_of_birth: req.body.date_of_birth,
+          //sexe: req.body.sexe,
+          email: req.body.email,
+          user_name: req.body.user_name,
+          
           is_admin: req.body.is_admin,
           is_patient: req.body.is_patient,
           is_specialist: req.body.is_specialist,

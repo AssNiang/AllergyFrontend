@@ -32,8 +32,8 @@ export class UserService {
     return this.http.get<User>(this.baseUrl+'/'+id);
   }
 
-  updateUser(user:User){
-    return this.http.put(this.baseUrl+'/'+user._id, user);
+  updateUser(user:any){
+    return this.http.put(this.baseUrl+'/'+user.id, user);
   }
 
   deleteUser(id:string){
