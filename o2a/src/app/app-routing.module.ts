@@ -8,6 +8,7 @@ import { RegistrationComponent } from "./components/registration/registration.co
 import { CategoriesComponent } from "./components/categories/categories.component";
 import { ProfilComponent } from "./components/profil/profil.component";
 import { NotificationComponent } from "./components/notification/notification.component";
+import { DiscussionComponent } from "./components/discussion/discussion.component";
 
 const routes: Routes = [
   { path: '', redirectTo:'homeAppli', pathMatch:'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'connected-user/:id', component: ConnectedUserComponent },
   { path: 'profil/:id', component: ProfilComponent},
   { path: 'notification/:id', component: NotificationComponent},
+  { path: 'discussion', component: DiscussionComponent},
 ];
 
 @NgModule({
