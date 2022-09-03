@@ -22,7 +22,7 @@ export class ProfilComponent implements OnInit {
 
     this._userService.getUserById(this.user_id).subscribe((data) => {
       this.user = data;
-      console.log(this.user.email);
+      //console.log(this.user.email);
     });
   }
 
