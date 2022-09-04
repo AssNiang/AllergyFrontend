@@ -47,11 +47,19 @@ export class CreatePostComponent implements OnInit {
     //if toUpdate is not defined, then we create the post
     if (!this.toUpdate) {
       try {
-        this._postService.createPost(send.value).subscribe((data) => {
-          console.log(data);
-          window.location.reload();
-
-        });
+        if (send.value.statut == 'public') {
+          this._postService.createPublicPost(send.value).subscribe((data) => {
+            alert(data);
+            window.location.reload();
+          });
+        } else if (send.value.statut == 'private') {
+          this._postService.createPrivatePost(send.value).subscribe((data) => {
+            alert(data);
+            window.location.reload();
+          });
+        } else {
+          alert('Le statut est soit public soit private !');
+        }
       } catch (error) {
         console.log(error);
       }
@@ -68,7 +76,6 @@ export class CreatePostComponent implements OnInit {
             // On veut que la modification affecte seulement l'instance de post en question (post sélectionné)
             this.piRef.setUpdateActivatedToFalse();
             window.location.reload();
-
           });
       } catch (error) {
         console.log(error);

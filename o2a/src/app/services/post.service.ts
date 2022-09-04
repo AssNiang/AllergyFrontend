@@ -12,8 +12,12 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  createPost(post: Post): Observable<any>{
-    return this.http.post(this.baseUrl+'/', post);
+  createPublicPost(post: Post): Observable<any>{
+    return this.http.post(this.baseUrl+'/public-post', post);
+  }
+
+  createPrivatePost(post: Post): Observable<any>{
+    return this.http.post(this.baseUrl+'/private-post', post);
   }
 
   deletePost(postId: string){
