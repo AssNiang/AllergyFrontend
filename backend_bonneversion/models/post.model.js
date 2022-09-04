@@ -1,17 +1,17 @@
- const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
   {
     posterId: {
       type: String,
-      required: true
+      required: true,
     },
     statut: {
-        type: String,
-        required: true,
-        enum: ['public', 'private'],
-        default: 'public',
-   },
+      type: String,
+      required: true,
+      enum: ["public", "private"],
+      default: "public",
+    },
     message: {
       type: String,
       trim: true,
@@ -24,20 +24,20 @@ const PostSchema = new mongoose.Schema(
       type: String,
     },
     audio: {
-        type: String,
-      },
+      type: String,
+    },
     likers: {
       type: [String],
       required: true,
     },
     reporters: {
-        type: [String],
-        required: true,
-      },
+      type: [String],
+      required: true,
+    },
     comments: {
       type: [
         {
-          commenterId:String,
+          commenterId: String,
           commenterUserName: String,
           text: String,
           likers: {
@@ -45,9 +45,9 @@ const PostSchema = new mongoose.Schema(
             required: true,
           },
           reporters: {
-              type: [String],
-              required: true,
-            },
+            type: [String],
+            required: true,
+          },
           //   comments: {
           //     type: [
           //       {
@@ -64,11 +64,11 @@ const PostSchema = new mongoose.Schema(
           //           },
           //         timestamp: Number,
           //       }
-              // ],
-              // required: true,
-            // },
+          // ],
+          // required: true,
+          // },
           timestamp: Number,
-        }
+        },
       ],
       required: true,
     },
@@ -78,4 +78,4 @@ const PostSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('post', PostSchema);
+module.exports = mongoose.model("post", PostSchema);
