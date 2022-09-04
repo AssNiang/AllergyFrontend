@@ -1,4 +1,5 @@
 const PostModel = require("../models/post.model");
+const FicheModel = require("../models/fiche.model");
 // const PostModel = require("../models/post.model");
 const UserModel = require("../models/user.model");
 const { uploadErrors } = require("../utils/errors.utils");
@@ -24,7 +25,7 @@ module.exports.getUserPosts =(req, res) => {
   }).sort({ createdAt: -1 });
 };
 
-module.exports.createPost = async (req, res) => {
+module.exports.createPublicPost = async (req, res) => {
   let fileName;
 
   // if (req.file !== null) {
@@ -54,7 +55,6 @@ module.exports.createPost = async (req, res) => {
   const newPost = new PostModel({
     posterId: req.body.posterId,
     message: req.body.message,
-    statut: req.body.statut,
     picture: req.file !== null ? "./uploads/posts/" + fileName : "",
     video: req.body.video,
     audio: req.body.audio,
@@ -65,6 +65,60 @@ module.exports.createPost = async (req, res) => {
 
   try {
     const post = newPost.save()
+    return res.status(201).json({post: newPost});
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+
+module.exports.createPrivatePost = async (req, res) => {
+  let fileName;
+
+  // if (req.file !== null) {
+  //   try {
+  //     if (
+  //       req.file.detectedMimeType != "image/jpg" &&
+  //       req.file.detectedMimeType != "image/png" &&
+  //       req.file.detectedMimeType != "image/jpeg"
+  //     )
+  //       throw Error("invalid file");
+
+  //     if (req.file.size > 500000) throw Error("max size");
+  //   } catch (err) {
+  //     const errors = uploadErrors(err);
+  //     return res.status(201).json({ errors });
+  //   }
+  //   fileName = req.body.posterId + Date.now() + ".jpg";
+
+  //   await pipeline(
+  //     req.file.stream,
+  //     fs.createWriteStream(
+  //       `${__dirname}/../client/public/uploads/posts/${fileName}`
+  //     )
+  //   );
+  // }
+
+  const newPost = new PostModel({
+    posterId: req.body.posterId,
+    message: req.body.message,
+    statut: "private",
+    picture: req.file !== null ? "./uploads/posts/" + fileName : "",
+    video: req.body.video,
+    audio: req.body.audio,
+    likers: [],
+    reporters:[],
+    comments: [],
+  });
+
+  
+
+  try {
+    newPost.save()
+    const newFiche = new FicheModel({
+      postId:newPost._id,
+      patientId:req.body.posterId
+    });
+    newFiche.save()
     return res.status(201).json({post: newPost});
   } catch (err) {
     return res.status(400).send(err);
@@ -124,11 +178,53 @@ module.exports.likePost = (req, res) => {
      UserModel.findByIdAndUpdate(
       req.body.id,
       {
-        $addToSet: { likes: req.params.id },
+        $addToSet: { postLikes: req.params.id },
       },
       { new: true },
       (err, docs) => {
-        if (!err) res.send(docs);
+        if (!err) res.status(200).send(docs);
+        else return res.status(400).send(err);
+      }
+    );
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+
+module.exports.likeComment = (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send("ID unknown : " + req.params.id);
+
+  try {
+    PostModel.findOneAndUpdate(
+      {
+        'comments': {
+          $elemMatch: {
+            _id : req.params.id,
+          }
+        },
+      },
+      {
+        // comments: { 
+          $addToSet: {
+            likers: req.body.id 
+          },
+        // },
+      },
+      { new: true },
+      (err, docs) => {
+        if (err) return res.status(400).send(err);
+      }
+    );
+
+     UserModel.findByIdAndUpdate(
+      req.body.id,
+      {
+        $addToSet: { commentLikes: req.params.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (!err) res.status(200).send(docs);
         else return res.status(400).send(err);
       }
     );
@@ -155,7 +251,7 @@ module.exports.unlikePost =  (req, res) => {
      UserModel.findByIdAndUpdate(
       req.body.id,
       {
-        $pull: { likes: req.params.id },
+        $pull: { postLikes: req.params.id },
       },
       { new: true },
       (err, docs) => {
@@ -167,6 +263,39 @@ module.exports.unlikePost =  (req, res) => {
     return res.status(400).send(err);
   }
 };
+
+module.exports.unlikeComment =  (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send("ID unknown : " + req.params.id);
+
+  try {
+     PostModel.findByIdAndUpdate(
+      {
+        'comments._id' : req.params.id,
+      },      {
+        $pull: { likers: req.body.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (err) return res.status(400).send(err);
+      }
+    );
+     UserModel.findByIdAndUpdate(
+      req.body.id,
+      {
+        $pull: { commentLikes: req.params.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (!err) res.send(docs);
+        else return res.status(400).send(err);
+      }
+    );
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+
 module.exports.reportPost =  (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
@@ -185,7 +314,41 @@ module.exports.reportPost =  (req, res) => {
      UserModel.findByIdAndUpdate(
       req.body.id,
       {
-        $addToSet: { reports: req.params.id },
+        $addToSet: { postReports: req.params.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (!err) res.send(docs);
+        else return res.status(400).send(err);
+      }
+    );
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+
+module.exports.reportComment =  (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send("ID unknown : " + req.params.id);
+
+  try {
+     PostModel.findOneAndUpdate(
+      {
+        'comments._id' : req.params.id,
+      },
+
+      {
+        $addToSet: { reporters: req.body.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (err) return res.status(400).send(err);
+      }
+    );
+     UserModel.findByIdAndUpdate(
+      req.body.id,
+      {
+        $addToSet: { postReports: req.params.id },
       },
       { new: true },
       (err, docs) => {
@@ -215,6 +378,40 @@ module.exports.unReportPost =  (req, res) => {
     );
      UserModel.findByIdAndUpdate(
       req.body.id,
+      {
+        $pull: { postReports: req.params.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (!err) res.send(docs);
+        else return res.status(400).send(err);
+      }
+    );
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+module.exports.unReportComment =  (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send("ID unknown : " + req.params.id);
+
+  try {
+     PostModel.findOneAndUpdate(
+      {
+         'comments._id': req.params.id,
+      },
+      {
+        $pull: { reporters: req.body.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (err) return res.status(400).send(err);
+      }
+    );
+     UserModel.findOneAndUpdate(
+      {
+        'comments._id': req.params.id,
+     },
       {
         $pull: { reports: req.params.id },
       },

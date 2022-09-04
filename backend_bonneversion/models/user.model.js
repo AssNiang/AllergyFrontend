@@ -102,11 +102,20 @@ const userSchema = new mongoose.Schema(
       default: false
     },
     
-    likes: {
-      type: [String]
+    postikes: {
+      type : [String]
+    },
+    commentLikes: {
+      type : [String]
     },
     //posts signales
-    reports : {
+    postReports : {
+      type : [String]
+    },
+    commentReports : {
+      type : [String]
+    },
+    followers : {
       type : [String]
     }
   },

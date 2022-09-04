@@ -40,14 +40,14 @@ const PostSchema = new mongoose.Schema(
           commenterId:String,
           commenterUserName: String,
           text: String,
-          // likers: {
-          //   type: [String],
-          //   required: true,
-          // },
-          // reporters: {
-          //     type: [String],
-          //     required: true,
-          //   },
+          likers: {
+            type: [String],
+            required: true,
+          },
+          reporters: {
+              type: [String],
+              required: true,
+            },
           //   comments: {
           //     type: [
           //       {
