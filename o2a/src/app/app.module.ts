@@ -29,6 +29,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { DiscussionComponent } from './components/discussion/discussion.component';
 import { SenderComponent } from './components/sender/sender.component';
 import { ReceiverComponent } from './components/receiver/receiver.component';
+import { HistoryPostsComponent } from './components/history-posts/history-posts.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { ReceiverComponent } from './components/receiver/receiver.component';
     NotificationComponent,
     DiscussionComponent,
     SenderComponent,
-    ReceiverComponent
+    ReceiverComponent,
+    HistoryPostsComponent
   ],
   imports: [
     BrowserModule,

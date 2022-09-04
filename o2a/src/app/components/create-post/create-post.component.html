@@ -1,35 +1,4 @@
-<!-- <div class="text-start m-3 p-3 border border-danger shadow row">
-  <div class="col-2">Emettre post :</div>
-
-  <div class="col-8">
-    <form action="" #send="ngForm">
-      <textarea ngModel name="content" id="" class="w-100 rounded"></textarea>
-    </form>
-  </div>
-
-  <div class="col-2" (click)="onSave(send)">
-    <img
-      src="../../../assets/images/send-svgrepo-com.svg"
-      height="30px"
-      alt=""
-      class="m-1"
-    />
-    <img
-      src="../../../assets/images/camera-svgrepo-com.svg"
-      height="30px"
-      alt=""
-      class="m-2"
-    />
-    <img
-      src="../../../assets/images/microphone-svgrepo-com.svg"
-      height="30px"
-      alt=""
-      class="m-1"
-    />
-  </div>
-</div> -->
-
-<div class="text-start m-3 p-3 border border-danger shadow row">
+<div class="text-start m-3 p-3 rounded componentFormat shadow row">
   <!--profil-->
   <div class="col-1">
     <img
@@ -51,12 +20,20 @@
   <div class="col-11">
     <div>
       <form action="" #send="ngForm">
+        <select class="form-select form-select-lg mb-3 bg-select fs-6" aria-label=".form-select-lg" name="statut" ngModel="public">
+          <option value="public">Post public</option>
+          <option value="private">Post privé</option>
+        </select>
+
+        <!-- {{send.value|json}} -->
+
         <textarea
           ngModel
           rows="4"
-          name="content"
+          name="message"
           placeholder="Emettre un post"
           class="w-100 textAreaFormat"
+          [value]="content"
         ></textarea>
       </form>
     </div>

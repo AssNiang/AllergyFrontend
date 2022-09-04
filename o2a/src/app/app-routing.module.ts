@@ -9,6 +9,7 @@ import { CategoriesComponent } from "./components/categories/categories.componen
 import { ProfilComponent } from "./components/profil/profil.component";
 import { NotificationComponent } from "./components/notification/notification.component";
 import { DiscussionComponent } from "./components/discussion/discussion.component";
+import { HistoryPostsComponent } from "./components/history-posts/history-posts.component";
 
 const routes: Routes = [
   { path: '', redirectTo:'homeAppli', pathMatch:'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'profil/:id', component: ProfilComponent},
   { path: 'notification/:id', component: NotificationComponent},
   { path: 'discussion', component: DiscussionComponent},
+  { path: 'history-posts/:id', component: HistoryPostsComponent},
 ];
 
 @NgModule({

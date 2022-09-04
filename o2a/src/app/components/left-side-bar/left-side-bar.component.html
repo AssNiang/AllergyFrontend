@@ -18,18 +18,18 @@
   <div [routerLink]="['categories', lsbRef.user_id]" routerLinkActive="active">Catégories</div>
   <div [routerLink]="['profil', lsbRef.user_id]" routerLinkActive="active">Profil</div>
   <div [routerLink]="['notification', lsbRef.user_id]" routerLinkActive="active">Notifications</div>
-  <div routerLink="" routerLinkActive="">Historique Posts</div>
+  <div [routerLink]="['history-posts', lsbRef.user_id]" routerLinkActive="active">Historique Posts</div>
   <div routerLink="" routerLinkActive="">Localiser Structures</div>
   <div (click)="disconnect()">Se déconnecter</div>
 </div>
 
 <div class="container" *ngIf="lsbRef.typeUser == 'specialist'">
 
-  <div routerLink="" routerLinkActive="">Accueil</div>
-  <div routerLink="categories" routerLinkActive="">Catégories</div>
-  <div routerLink="profil" routerLinkActive="">Profil</div>
-  <div routerLink="notification" routerLinkActive="">Notifications</div>
-  <div routerLink="" routerLinkActive="">Historique Posts</div>
+  <div [routerLink]="['connected-user', lsbRef.user_id]" routerLinkActive="active">Accueil</div>
+  <div [routerLink]="['categories', lsbRef.user_id]" routerLinkActive="active">Catégories</div>
+  <div [routerLink]="['profil', lsbRef.user_id]" routerLinkActive="active">Profil</div>
+  <div [routerLink]="['notification', lsbRef.user_id]" routerLinkActive="active">Notifications</div>
+  <div [routerLink]="['history-posts', lsbRef.user_id]" routerLinkActive="active">Historique Posts</div>
   <div routerLink="" routerLinkActive="">Localiser Structures</div>
   <div routerLink="" routerLinkActive="">Demandes de conseils</div>
   <div routerLink="" routerLinkActive="">Données Aggrégées</div>
@@ -37,11 +37,11 @@
 </div>
 
 <div class="container" *ngIf="lsbRef.typeUser == 'admin'">
-  <div routerLink="" routerLinkActive="">Accueil</div>
-  <div routerLink="categories" routerLinkActive="">Catégories</div>
-  <div routerLink="profil" routerLinkActive="">Profil</div>
-  <div routerLink="notification" routerLinkActive="">Notifications</div>
-  <div routerLink="" routerLinkActive="">Historique Posts</div>
+  <div [routerLink]="['connected-user', lsbRef.user_id]" routerLinkActive="active">Accueil</div>
+  <div [routerLink]="['categories', lsbRef.user_id]" routerLinkActive="active">Catégories</div>
+  <div [routerLink]="['profil', lsbRef.user_id]" routerLinkActive="active">Profil</div>
+  <div [routerLink]="['notification', lsbRef.user_id]" routerLinkActive="active">Notifications</div>
+  <div [routerLink]="['history-posts', lsbRef.user_id]" routerLinkActive="active">Historique Posts</div>
   <div routerLink="" routerLinkActive="">Localiser Structures</div>
   <div routerLink="" routerLinkActive="">Posts Signalés</div>
   <div routerLink="" routerLinkActive="">Spécialistes</div>

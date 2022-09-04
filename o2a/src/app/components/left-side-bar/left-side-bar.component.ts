@@ -34,5 +34,6 @@ export class LeftSideBarComponent implements OnInit {
   ngOnInit(): void {
     // this.temp = this.router.url.split('/');
     // alert(this.temp[1]);
+
   }
 }
