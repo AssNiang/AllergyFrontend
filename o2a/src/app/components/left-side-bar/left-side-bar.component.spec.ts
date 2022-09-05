@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LeftSideBarComponent } from './left-side-bar.component';
 
 describe('LeftSideBarComponent', () => {
@@ -8,7 +8,8 @@ describe('LeftSideBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LeftSideBarComponent ]
+      declarations: [ LeftSideBarComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });

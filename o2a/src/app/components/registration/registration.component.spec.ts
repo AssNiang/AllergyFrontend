@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing'
 import { UserService } from 'src/app/services/user.service';
-
 import { RegistrationComponent } from './registration.component';
 
 describe('RegistrationComponent', () => {
@@ -18,7 +17,6 @@ describe('RegistrationComponent', () => {
       declarations: [ RegistrationComponent ],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       providers: [UserService]
-
     })
     .compileComponents();
   });
@@ -37,5 +35,4 @@ describe('RegistrationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  //it('should ')
 });
