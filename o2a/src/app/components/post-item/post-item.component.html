@@ -18,8 +18,7 @@
       <div class="col-6 mt-3 text-center">
         <div class="">{{ post.createdAt | date: "hh:mm:ss a -- dd-MM-yyyy" }}</div>
         <div *ngIf="post.createdAt != post.updatedAt">
-          ( modifié à:
-          {{ post.updatedAt | date: "hh:mm:ss a -- dd-MM-yyyy" }} )
+          ( modifié )
         </div>
       </div>
 

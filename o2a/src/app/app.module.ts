@@ -30,6 +30,8 @@ import { DiscussionComponent } from './components/discussion/discussion.componen
 import { SenderComponent } from './components/sender/sender.component';
 import { ReceiverComponent } from './components/receiver/receiver.component';
 import { HistoryPostsComponent } from './components/history-posts/history-posts.component';
+import { UserService } from './services/user.service';
+import { PostService } from './services/post.service';
 
 
 @NgModule({
@@ -66,7 +68,7 @@ import { HistoryPostsComponent } from './components/history-posts/history-posts.
     NgbModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [UserService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
