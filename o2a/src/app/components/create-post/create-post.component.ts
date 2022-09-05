@@ -26,7 +26,6 @@ export class CreatePostComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private _userService: UserService,
     private _postService: PostService
   ) {
