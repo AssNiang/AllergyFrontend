@@ -33,11 +33,15 @@ export class PostItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._userService
-      .getUserById(this.post.posterId as string)
-      .subscribe((author) => {
-        this.postAuthor = author;
-      });
+    try {
+      this._userService
+        .getUserById(this.post.posterId + '')
+        .subscribe((author) => {
+          this.postAuthor = author;
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   onDelete() {
@@ -48,7 +52,6 @@ export class PostItemComponent implements OnInit {
         .subscribe((data) => {
           console.log('post ' + data + ' deleted !');
           window.location.reload();
-
         });
     } catch (error) {
       console.log(error);
