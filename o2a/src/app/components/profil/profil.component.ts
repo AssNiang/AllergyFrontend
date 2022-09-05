@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css'],
 })
+
 export class ProfilComponent implements OnInit {
   user!: User;
   user_id!: string;
