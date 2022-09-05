@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NotificationComponent } from './notification.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { UserService } from 'src/app/services/user.service';
 
 describe('NotificationComponent', () => {
   let component: NotificationComponent;
@@ -9,7 +11,8 @@ describe('NotificationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ NotificationComponent ],
-      imports: [ HttpClientTestingModule]
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      providers: [UserService]
     })
     .compileComponents();
   });

@@ -22,4 +22,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('o2a');
   });
 
+
 });
