@@ -1,6 +1,6 @@
 export class Post{
   _id?: string;
-  posterId?: string;
+  posterId!: string;
   statut!: string;
   message!: string;
   picture?: string;

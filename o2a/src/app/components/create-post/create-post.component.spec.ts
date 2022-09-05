@@ -14,7 +14,7 @@ describe('CreatePostComponent', () => {
       declarations: [ CreatePostComponent ],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       providers: [UserService]
-    })
+    }) 
     .compileComponents();
 
     fixture = TestBed.createComponent(CreatePostComponent);
