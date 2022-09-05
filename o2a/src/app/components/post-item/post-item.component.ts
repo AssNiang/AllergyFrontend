@@ -1,36 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post';
+import { User } from 'src/app/models/user';
+import { PostService } from 'src/app/services/post.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-post-item',
   templateUrl: './post-item.component.html',
-  styleUrls: ['./post-item.component.css']
+  styleUrls: ['./post-item.component.css'],
 })
 export class PostItemComponent implements OnInit {
-  public profile : String = "../../../assets/images/blank-profile-picture.webp";
-  public firstname : String = "Ass";
-  public lastname : String = "NIANG";
+  @Input() post!: Post;
+  @Input() deleteUpdateButtonPresent!: boolean;
+  postAuthor!: User;
 
-  public allergyName : String = "Turu Allergie Bi";
-  public allergyDescription : String = `La rhinite saisonnière, aussi appelée rhume des foins, est une réaction allergique causée par l’exposition aux pollens. Au Québec, 1 personne sur 5 souffre de la rhinite saisonnière, qui est causée principalement par le pollen de l’herbe à poux.
+  // piRef = PostItemComponent;
+  updateActivated: boolean = false; // utiliser une variable d'instance plutôt qu'une variable de classe (pour ne pas affecter tous les posts)
 
-  La rhinite saisonnière débute habituellement au printemps, lorsque certains arbres pouvant causer des allergies libèrent leur pollen dans l’air. Par la suite, d’autres plantes allergènes libèrent leur pollen tout au long de l’été, et ce, jusqu’à la mi-octobre. Les réactions allergiques causées par les différents pollens se manifestent à peu près aux mêmes périodes chaque année, soit :
+  public profile: String = '../../../assets/images/blank-profile-picture.webp';
 
-      de mars à juin (pollen des arbres et des arbustes);
-      de mai à octobre (pollen des graminées, tels que le gazon, le foin, le pâturin et le brome);
-      de juillet à octobre (pollen de l’herbe à poux).
+  // A rappeler à Abdoukhadre : liste de pictures, not only one (backend)
+  images: String[] = [];
 
-  Les changements climatiques allongent la période pendant laquelle les plantes et les arbres produisent du pollen. Par conséquent, la période des allergies risque elle aussi de se prolonger au cours des prochaines années.
-  `;
+  // public images: String[] = [
+  //   '../../../assets/images/rhume-foins1.jpg',
+  //   '../../../assets/images/rhume-foins2.webp',
+  // ];
 
-  //images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  public images : String[] = [
-    "../../../assets/images/rhume-foins1.jpg",
-    "../../../assets/images/rhume-foins2.webp",
-  ]
-
-  constructor() { }
+  constructor(
+    private _userService: UserService,
+    private _postService: PostService
+  ) {}
 
   ngOnInit(): void {
+    this._userService
+      .getUserById(this.post.posterId as string)
+      .subscribe((author) => {
+        this.postAuthor = author;
+      });
   }
 
+  onDelete() {
+    // to delete a post. It's working !
+    try {
+      this._postService
+        .deletePost(this.post._id as string)
+        .subscribe((data) => {
+          console.log('post ' + data + ' deleted !');
+          window.location.reload();
+
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  onUpdate() {
+    this.updateActivated = true;
+  }
+
+  // l'importance des variables de classe et des variables d'instance.
+  // On veut que la modification affecte seulement l'instance de post en question (post sélectionné)
+  public setUpdateActivatedToFalse() {
+    this.updateActivated = false;
+  }
 }

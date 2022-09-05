@@ -12,7 +12,6 @@ const allergieFicheSchema = new mongoose.Schema(
         },
         specialistId:  {
             type: String,
-            required: true,
         }, 
         chatBot:  {
             type : [

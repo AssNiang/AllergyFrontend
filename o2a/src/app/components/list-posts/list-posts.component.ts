@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-list-posts',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-posts.component.css']
 })
 export class ListPostsComponent implements OnInit {
+  allPosts: Post[] = [];
 
-  constructor() { }
+  constructor(private _postService:PostService) { }
 
   ngOnInit(): void {
+    try {
+      this._postService.getAllPosts().subscribe(
+        posts => {
+          this.allPosts = posts.filter(post => post.statut == "public");
+          //console.log(this.allPosts);
+        }
+      )
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
 }
