@@ -37,5 +37,5 @@ describe('RegistrationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should ')
+  //it('should ')
 });
