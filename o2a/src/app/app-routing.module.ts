@@ -11,7 +11,7 @@ import { NotificationComponent } from "./components/notification/notification.co
 import { DiscussionComponent } from "./components/discussion/discussion.component";
 import { HistoryPostsComponent } from "./components/history-posts/history-posts.component";
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo:'homeAppli', pathMatch:'full' },
   { path: 'registration', component: RegistrationComponent },
   { path: 'registration/:id', component: RegistrationComponent },
@@ -38,3 +38,4 @@ export const routingComponents = [
   CategoriesComponent,
   ProfilComponent
 ]
+

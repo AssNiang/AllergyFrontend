@@ -19,16 +19,16 @@ export class LeftSideBarComponent implements OnInit {
   constructor(private router: Router, private _userService: UserService) {}
 
   disconnect() {
-    try {
-      this._userService.logoutUser().subscribe((data) => {
-        console.log(data);
-      });
+    // try {
+
+
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    this._userService.logoutUser().subscribe();
       AppComponent.typeUser = LeftSideBarComponent.typeUser = "unknown";
       this.router.navigate(['']);
-
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   ngOnInit(): void {

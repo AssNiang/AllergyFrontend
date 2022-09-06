@@ -46,16 +46,14 @@ export class PostItemComponent implements OnInit {
 
   onDelete() {
     // to delete a post. It's working !
-    try {
-      this._postService
-        .deletePost(this.post._id as string)
-        .subscribe((data) => {
-          console.log('post ' + data + ' deleted !');
-          window.location.reload();
-        });
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    this._postService.deletePost(this.post._id as string).subscribe(() => {
+      //window.location.reload();
+    });
   }
 
   onUpdate() {

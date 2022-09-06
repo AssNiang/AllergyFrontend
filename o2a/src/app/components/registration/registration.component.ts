@@ -22,20 +22,21 @@ export class RegistrationComponent implements OnInit {
       return;
     }
 
-    try {
-      this._userService.signUpUser(register.value).subscribe((data) => {
-        console.log(data);
+    // try {
 
-        register.reset();
-        /*
-          - add verifications before switching (validators)
-          - save infos in the db
-        */
-        this.router.navigate(['login']);
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    this._userService.signUpUser(register.value).subscribe((data) => {
+
+      //register.reset();
+      /*
+        - add verifications before switching (validators)
+        - save infos in the db
+      */
+      this.router.navigate(['login']);
+    });
   }
 
   public togglePasswordVisibility(): void {

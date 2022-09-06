@@ -28,20 +28,22 @@ export class HistoryPostsComponent implements OnInit {
   ngOnInit(): void {
     this.user_id = this.router.url.split('/')[2];
     //alert(this.user_id)
-    try {
-      this._postService.getAllPostsById(this.user_id as string).subscribe(
-        posts => {
-          this.myPosts = posts;
-          this.myPublicPosts = posts.filter(post => post.statut == "public");
-          this.myPrivatePosts = posts.filter(post => post.statut == "private");
-          console.log(this.myPosts);
-        }
-      )
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
 
-    // refresh the left-side-bar and the app-component
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    this._postService.getAllPostsById(this.user_id as string).subscribe(
+      posts => {
+        this.myPosts = posts;
+        this.myPublicPosts = posts.filter(post => post.statut == "public");
+        this.myPrivatePosts = posts.filter(post => post.statut == "private");
+        console.log(this.myPosts);
+      }
+    )
+
+    // refresh the left-side-bar and the app-component-----> could catch an error if an incorrect user_id is given
     this._userService.getUserById(this.user_id+'').subscribe(
       user => {
         //console.log("user:", user); // just for test

@@ -9,7 +9,6 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css'],
 })
-
 export class ProfilComponent implements OnInit {
   user!: User;
   user_id!: string;
@@ -27,17 +26,16 @@ export class ProfilComponent implements OnInit {
     });
   }
 
-  onUpdate(update: NgForm){
-    try {
-      update.value.id = this.user._id;
+  onUpdate(update: NgForm) {
+    // try {
 
-      console.log(update.value)
-      this._userService.updateUser(update.value).subscribe(
-        data => {console.log(data);}
-      )
-    } catch (error) {
-      console.log(error);
-    }
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    update.value.id = this.user._id;
+
+    this._userService.updateUser(update.value).subscribe();
   }
 
   togglePasswordVisibility(): void {

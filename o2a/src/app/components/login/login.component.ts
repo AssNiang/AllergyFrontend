@@ -19,41 +19,41 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private _userService: UserService) {}
 
   submit(login: NgForm) {
-    try {
-      this._userService.signInUser(login.value).subscribe((data) => {
-        //get user by id
-        this._userService.getUserById(data.id).subscribe(
-          user => {
-            //console.log("user:", user); // just for test
-            LeftSideBarComponent.user_id = data.id;
-            if(user.is_specialist){
-              AppComponent.typeUser = LeftSideBarComponent.typeUser = 'specialist';
-            }
-            else if(user.is_admin){
-              AppComponent.typeUser = LeftSideBarComponent.typeUser = 'admin';
-            }
-            else{
-              AppComponent.typeUser = LeftSideBarComponent.typeUser = 'connected';
-            }
+    // try {
+
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    this._userService.signInUser(login.value).subscribe((data) => {
+      //get user by id
+      this._userService.getUserById(data.id).subscribe(
+        user => {
+          //console.log("user:", user); // just for test
+          LeftSideBarComponent.user_id = data.id;
+          if(user.is_specialist){
+            AppComponent.typeUser = LeftSideBarComponent.typeUser = 'specialist';
           }
-        );
+          else if(user.is_admin){
+            AppComponent.typeUser = LeftSideBarComponent.typeUser = 'admin';
+          }
+          else{
+            AppComponent.typeUser = LeftSideBarComponent.typeUser = 'connected';
+          }
+        }
+      );
 
-        console.log(data.id);
+      //login.reset();
 
-        login.reset();
+      /*
+        - add verifications before switching (user found)
+        - get the userId, pass it through the url
+        - get the user type to initialize `LeftSideBarComponent.typeUser`
+      */
 
-        /*
-          - add verifications before switching (user found)
-          - get the userId, pass it through the url
-          - get the user type to initialize `LeftSideBarComponent.typeUser`
-        */
-
-        //LeftSideBarComponent.typeUser = 'admin'; // just for test purposes
-        this.router.navigate(['connected-user', data.id]);
-      });
-    } catch (error) {
-      console.log(error);
-    }
+      //LeftSideBarComponent.typeUser = 'admin'; // just for test purposes
+      this.router.navigate(['connected-user', data.id]);
+    });
   }
 
   public togglePasswordVisibility(): void {
