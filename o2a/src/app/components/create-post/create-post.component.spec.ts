@@ -8,22 +8,33 @@ import { User } from 'src/app/models/user';
 import { Observable, of } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/app/models/post';
+import { InjectionToken } from '@angular/core';
 
 describe('CreatePostComponent', () => {
   let component: CreatePostComponent;
   let fixture: ComponentFixture<CreatePostComponent>;
+
+  // const WINDOW = new InjectionToken('Window');
+  // let windowMock = {
+  //   location: {
+  //     reload: jasmine.createSpy('reload')
+  //   }
+  // }
 
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CreatePostComponent],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
-      providers: [UserService, PostService],
+      // providers: [UserService, PostService, {provide: WINDOW, useValue:windowMock}],
+      providers: [UserService, PostService,]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CreatePostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+
   });
 
   it('should create', () => {
@@ -130,11 +141,14 @@ describe('CreatePostComponent', () => {
       }
     );
 
-    //let window = jasmine.createSpy('$window');
+    // spyOn(window.location, 'reload').and.callFake(() => {
+    //   //test
+    // });
 
     component.toUpdate = '';
     component.user = user;
     component.onSave(send);
+    expect(stub).toHaveBeenCalled();
   });
 
   it('should call onSave(), then createPublicPost() to create the post if it does not exist', () => {
@@ -176,9 +190,10 @@ describe('CreatePostComponent', () => {
     component.toUpdate = '';
     component.user = user;
     component.onSave(send);
+    expect(stub).toHaveBeenCalled();
   });
 
-  it('should call onSave(), then createPublicPost() to create the post if it does not exist', () => {
+  it('should call onSave(), then createPublicPost() with an incorrect "statut" and the post won\'t be created', () => {
     let post: Post = {
       _id: 'idPost',
       posterId: 'idPoster',
@@ -217,9 +232,10 @@ describe('CreatePostComponent', () => {
     component.toUpdate = '';
     component.user = user;
     component.onSave(send);
+    expect(stub).not.toHaveBeenCalled();
   });
 
-  it('should call onSave(), then createPublicPost() to create the post if it does not exist', () => {
+  it('should call onSave(), then createPublicPost() to update an existing', () => {
     let post: Post = {
       _id: 'idPost',
       posterId: 'idPoster',
@@ -259,6 +275,8 @@ describe('CreatePostComponent', () => {
 
     component.user = user;
     component.onSave(send);
+    expect(stub).toHaveBeenCalled();
+
   });
 
 

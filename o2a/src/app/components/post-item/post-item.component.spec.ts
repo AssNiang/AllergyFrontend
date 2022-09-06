@@ -83,7 +83,7 @@ describe('PostItemComponent', () => {
       }
     );
     component.onDelete();
-    // expect(stub).toEqual(User);
+    expect(stub).toHaveBeenCalled();
 
   });
 

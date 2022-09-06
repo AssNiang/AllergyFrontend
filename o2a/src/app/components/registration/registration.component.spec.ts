@@ -6,11 +6,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
-import { AppComponent } from 'src/app/app.component';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
-import { LeftSideBarComponent } from '../left-side-bar/left-side-bar.component';
-import { LoginComponent } from '../login/login.component';
 import { RegistrationComponent } from './registration.component';
 
 describe('RegistrationComponent', () => {
@@ -103,7 +100,7 @@ describe('RegistrationComponent', () => {
 
     let userService = fixture.debugElement.injector.get(UserService);
 
-    let sub = spyOn(userService, 'signUpUser').and.callFake(
+    let stub = spyOn(userService, 'signUpUser').and.callFake(
       (info: any = register.value): Observable<User> => {
         return of(user);
       }
@@ -111,6 +108,6 @@ describe('RegistrationComponent', () => {
 
     component.submit(register);
 
-    //expect(component.notValid).toEqual(true);
+    expect(stub).toHaveBeenCalled();
   });
 });
