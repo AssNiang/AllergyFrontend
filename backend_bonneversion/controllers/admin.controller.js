@@ -42,7 +42,7 @@ module.exports.createSpecialist = async (req, res) => {
 
 module.exports.getReportedPosts = (req, res) => {
     PostModel.find({reporters:{$size:1}}, (err, docs) => {
-        if (!err) return res.send(docs);
+        if (!err) return res.status(200).send(docs);
         else console.log("Error to get data : " + err);
       });
     
@@ -50,7 +50,7 @@ module.exports.getReportedPosts = (req, res) => {
 
 module.exports.getRetiredAccounts = async (req, res, next) => {
   UserModel.find({is_locked:true}, (err, docs) => {
-    if (!err) res.send(docs);
+    if (!err) res.status(200).send(docs);
     else console.log("Error to get data : " + err);
   });
   next();
@@ -64,7 +64,7 @@ module.exports.getAllAccounts = async (req, res, next) => {
 
 module.exports.getNoRetiredAccounts = async (req, res, next) => {
   UserModel.find({is_locked:false}, (err, docs) => {
-    if (!err) return res.send(docs);
+    if (!err) return res.status(200).send(docs);
     else console.log("Error to get data : " + err);
   });
   next();
@@ -72,7 +72,7 @@ module.exports.getNoRetiredAccounts = async (req, res, next) => {
 
 module.exports.getPatients = async (req, res, next) => {
   UserModel.find({is_patient:true}, (err, docs) => {
-    if (!err) return res.send(docs);
+    if (!err) return res.status(200).send(docs);
     else console.log("Error to get data : " + err);
   });
   next();
@@ -87,7 +87,7 @@ module.exports.getFollowedPatients = async (req, res) => {
 
 module.exports.getUnFollowedPatients = async (req, res) => {
   UserModel.find({is_patient:true, followers:{$size:0}}, (err, docs) => {
-    if (!err) return res.send(docs);
+    if (!err) return res.status(200).send(docs);
     else console.log("Error to get data : " + err);
   });
 };

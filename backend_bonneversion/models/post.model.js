@@ -34,44 +34,6 @@ const PostSchema = new mongoose.Schema(
         type: [String],
         required: true,
       },
-    comments: {
-      type: [
-        {
-          commenterId:String,
-          commenterUserName: String,
-          text: String,
-          likers: {
-            type: [String],
-            required: true,
-          },
-          reporters: {
-              type: [String],
-              required: true,
-            },
-          //   comments: {
-          //     type: [
-          //       {
-          //         commenterId:String,
-          //         commenterUserName: String,
-          //         text: String,
-          //         likers: {
-          //           type: [String],
-          //           required: true,
-          //         },
-          //         reporters: {
-          //             type: [String],
-          //             required: true,
-          //           },
-          //         timestamp: Number,
-          //       }
-              // ],
-              // required: true,
-            // },
-          timestamp: Number,
-        }
-      ],
-      required: true,
-    },
   },
   {
     timestamps: true,

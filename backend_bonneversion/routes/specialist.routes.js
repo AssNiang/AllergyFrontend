@@ -4,9 +4,11 @@ const specialistController = require('../controllers/specialist.controller');
 
 router.get('/all-patients', specialistController.getAllPatients);
 router.get('/patient/:id', specialistController.getPatient);
-router.get('/historique-file/:id', specialistController.getPatientFile);
-router.get('/historique-files', specialistController.getAllPatientsFiles);
-router.put('/editfile', specialistController.editPatientFile);
+router.get('/get-all-file/:id', specialistController.getPatientFile);
+router.get('/get-file', specialistController.getAllPatientsFiles);
+router.post('/create-file', specialistController.createAllergyFile);
+router.delete('/delete-file', specialistController.deleteFile);
+router.put('/edit-file', specialistController.editPatientFile);
 router.patch('/follow/:id', specialistController.follow);
 router.patch('/unfollow/:id', specialistController.unfollow);
 

@@ -1,9 +1,11 @@
 const express = require('express');
 const userRoutes = require('./routes/user.routes');
 const postRoutes = require('./routes/post.routes');
+const commentRoutes = require('./routes/comment.routes');
 const specialistRoutes = require('./routes/specialist.routes');
 const adminRoutes = require('./routes/admin.routes');
 const cookieParser = require('cookie-parser');
+const databaseHelper = require('./config/database');
 const cors = require('cors');
 require('dotenv').config({path:'./config/.env'});
 require('./config/db');
@@ -24,7 +26,9 @@ const corsOptions = {
   'preflightContinue': false
 }
 app.use(cors(corsOptions));
+//database
 
+app.use(databaseHelper.connect());
 
 // jwt
 app.get('*', checkUser);
@@ -35,13 +39,14 @@ app.get('/jwtid', requiredAuth, (req, res) => {
 //routes
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
+app.use('/api/comment', commentRoutes);
 app.use('/api/user/specialist', specialistRoutes);
 app.use('/api/user/admin', adminRoutes);
 
 //server
-app.listen(process.env.PORT, ()=> {
+const server = app.listen(process.env.PORT, ()=> {
   console.log(`Listening on port ${process.env.PORT}`);
 });
 
-
-// module.exports = app;
+// export default server
+module.exports = {app, server};

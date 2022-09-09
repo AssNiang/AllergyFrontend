@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const allergieSchema = new mongoose.Schema(
+const allergieFileSchema = new mongoose.Schema(
     {
         postId: {
             type: String,
@@ -10,15 +10,20 @@ const allergieSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        allergie_name: {
+        specialistId: {
+            type: String,
+            required: true,
+        },
+        allergy_name: {
             type: String,
         },
         description: {
             type: String,
             required: true,
         },
-        clinicSign: {
+        clinic_sign: {
             type: [String],
+            
         },
         symptom : {
             type: [String],
@@ -28,5 +33,5 @@ const allergieSchema = new mongoose.Schema(
         timestamps: true,
     },
 );
-
-module.exports = mongoose.model('allergie', allergieSchema);
+ 
+module.exports = mongoose.model('allergieFile', allergieFileSchema);
