@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\admin.spec.js">
+        <testCase name="API User Admin Should create a new specialist" duration="138">
+            <failure message="Error: connect ECONNREFUSED 127.0.0.1:5000"><![CDATA[Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1157:16)]]></failure>
+        </testCase>
+        <testCase name="API User Admin should return all reported posts" duration="8">
+            <failure message="Error: connect ECONNREFUSED 127.0.0.1:5000"><![CDATA[Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1157:16)]]></failure>
+        </testCase>
+        <testCase name="API User Admin should return all retired accounts" duration="5">
+            <failure message="TypeError: request.get is not a function"><![CDATA[TypeError: request.get is not a function
+    at Object.get (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\admin.spec.js:37:36)
+    at Promise.then.completed (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:31:3)]]></failure>
+        </testCase>
+        <testCase name="API User Admin should return all no retired accounts" duration="5">
+            <failure message="TypeError: request.get is not a function"><![CDATA[TypeError: request.get is not a function
+    at Object.get (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\admin.spec.js:41:36)
+    at Promise.then.completed (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:31:3)]]></failure>
+        </testCase>
+        <testCase name="API User Admin should return all  accounts" duration="4">
+            <failure message="TypeError: request.get is not a function"><![CDATA[TypeError: request.get is not a function
+    at Object.get (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\admin.spec.js:45:36)
+    at Promise.then.completed (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:31:3)]]></failure>
+        </testCase>
+        <testCase name="API User Admin should return all  patients" duration="4">
+            <failure message="TypeError: request.get is not a function"><![CDATA[TypeError: request.get is not a function
+    at Object.get (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\admin.spec.js:49:36)
+    at Promise.then.completed (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:31:3)]]></failure>
+        </testCase>
+        <testCase name="API User Admin should return all  followed patients" duration="4">
+            <failure message="TypeError: request.get is not a function"><![CDATA[TypeError: request.get is not a function
+    at Object.get (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\admin.spec.js:53:36)
+    at Promise.then.completed (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:31:3)]]></failure>
+        </testCase>
+        <testCase name="API User Admin should return all  unfollowed patients" duration="4">
+            <failure message="TypeError: request.get is not a function"><![CDATA[TypeError: request.get is not a function
+    at Object.get (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\admin.spec.js:57:36)
+    at Promise.then.completed (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:31:3)]]></failure>
+        </testCase>
+    </file>
+    <file path="C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js">
+        <testCase name="API User Should create a new user and return a 201 status code" duration="10115">
+            <failure message="Error: connect ECONNREFUSED 127.0.0.1:5000"><![CDATA[Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1157:16)]]></failure>
+            <failure message="Error: thrown: &quot;Exceeded timeout of 10000 ms for a test."><![CDATA[Error: thrown: "Exceeded timeout of 10000 ms for a test.
+Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test."
+    at it (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:20:3)
+    at _dispatchDescribe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:105:26)
+    at describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:60:5)
+    at Object.describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:6:1)
+    at Runtime._execModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1596:24)
+    at Runtime._loadModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1124:12)
+    at Runtime.requireModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:960:12)
+    at jestAdapter (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:89:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at runTestInternal (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runner\build\runTest.js:404:16)]]></failure>
+        </testCase>
+        <testCase name="API User Should update given user and return a 200 status code" duration="10019">
+            <failure message="Error: connect ECONNREFUSED 127.0.0.1:5000"><![CDATA[Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1157:16)]]></failure>
+            <failure message="Error: thrown: &quot;Exceeded timeout of 10000 ms for a test."><![CDATA[Error: thrown: "Exceeded timeout of 10000 ms for a test.
+Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test."
+    at it (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:28:3)
+    at _dispatchDescribe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:105:26)
+    at describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:60:5)
+    at Object.describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:6:1)
+    at Runtime._execModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1596:24)
+    at Runtime._loadModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1124:12)
+    at Runtime.requireModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:960:12)
+    at jestAdapter (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:89:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at runTestInternal (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runner\build\runTest.js:404:16)]]></failure>
+        </testCase>
+        <testCase name="API User should return all users" duration="10021">
+            <failure message="Error: connect ECONNREFUSED 127.0.0.1:5000"><![CDATA[Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1157:16)]]></failure>
+            <failure message="Error: thrown: &quot;Exceeded timeout of 10000 ms for a test."><![CDATA[Error: thrown: "Exceeded timeout of 10000 ms for a test.
+Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test."
+    at it (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:45:3)
+    at _dispatchDescribe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:105:26)
+    at describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:60:5)
+    at Object.describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:6:1)
+    at Runtime._execModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1596:24)
+    at Runtime._loadModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1124:12)
+    at Runtime.requireModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:960:12)
+    at jestAdapter (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:89:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at runTestInternal (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runner\build\runTest.js:404:16)]]></failure>
+        </testCase>
+        <testCase name="API User should login an existing user in the database" duration="10016">
+            <failure message="TypeError: request.post is not a function"><![CDATA[TypeError: request.post is not a function
+    at Object.post (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:52:36)
+    at Promise.then.completed (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:323:26)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\run.js:31:3)]]></failure>
+            <failure message="Error: thrown: &quot;Exceeded timeout of 10000 ms for a test."><![CDATA[Error: thrown: "Exceeded timeout of 10000 ms for a test.
+Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test."
+    at it (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:51:3)
+    at _dispatchDescribe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:105:26)
+    at describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:60:5)
+    at Object.describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:6:1)
+    at Runtime._execModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1596:24)
+    at Runtime._loadModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1124:12)
+    at Runtime.requireModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:960:12)
+    at jestAdapter (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:89:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at runTestInternal (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runner\build\runTest.js:404:16)]]></failure>
+        </testCase>
+        <testCase name="API User should return a specific user given his id with status code 200" duration="10009">
+            <failure message="Error: connect ECONNREFUSED 127.0.0.1:5000"><![CDATA[Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1157:16)]]></failure>
+            <failure message="Error: thrown: &quot;Exceeded timeout of 10000 ms for a test."><![CDATA[Error: thrown: "Exceeded timeout of 10000 ms for a test.
+Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test."
+    at it (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:60:3)
+    at _dispatchDescribe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:105:26)
+    at describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:60:5)
+    at Object.describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:6:1)
+    at Runtime._execModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1596:24)
+    at Runtime._loadModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1124:12)
+    at Runtime.requireModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:960:12)
+    at jestAdapter (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:89:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at runTestInternal (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runner\build\runTest.js:404:16)]]></failure>
+        </testCase>
+        <testCase name="API User should be able to delete user" duration="10039">
+            <failure message="Error: connect ECONNREFUSED 127.0.0.1:5000"><![CDATA[Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1157:16)]]></failure>
+            <failure message="Error: thrown: &quot;Exceeded timeout of 10000 ms for a test."><![CDATA[Error: thrown: "Exceeded timeout of 10000 ms for a test.
+Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test."
+    at it (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:75:3)
+    at _dispatchDescribe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:105:26)
+    at describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\index.js:60:5)
+    at Object.describe (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\__tests__\user.spec.js:6:1)
+    at Runtime._execModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1596:24)
+    at Runtime._loadModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:1124:12)
+    at Runtime.requireModule (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runtime\build\index.js:960:12)
+    at jestAdapter (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:89:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at runTestInternal (C:\Mes dossiers\DC1 GIT\Classe\Projets_Transversaux\O2A-backend\Final\AllergyFrontend\backend_bonneversion\node_modules\jest-runner\build\runTest.js:404:16)]]></failure>
+        </testCase>
+    </file>
+</testExecutions>

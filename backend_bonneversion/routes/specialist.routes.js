@@ -7,7 +7,7 @@ router.get('/patient/:id', specialistController.getPatient);
 router.get('/get-all-file/:id', specialistController.getPatientFile);
 router.get('/get-file', specialistController.getAllPatientsFiles);
 router.post('/create-file', specialistController.createAllergyFile);
-router.delete('/delete-file', specialistController.deleteFile);
+router.delete('/delete-file/:id', specialistController.deleteFile);
 router.put('/edit-file', specialistController.editPatientFile);
 router.patch('/follow/:id', specialistController.follow);
 router.patch('/unfollow/:id', specialistController.unfollow);

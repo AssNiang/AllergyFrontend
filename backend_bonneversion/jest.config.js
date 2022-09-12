@@ -52,10 +52,10 @@ module.exports = {
     // forceCoverageMatch: [],
   
     // A path to a module which exports an async function that is triggered once before all test suites
-    globalSetup: '<rootDir>/__tests__/setup.js',
+    globalSetup: '<rootDir>/__tests__/setup/setup.js',
   
     // A path to a module which exports an async function that is triggered once after all test suites
-    globalTeardown: '<rootDir>/__tests__/teardown.js',
+    globalTeardown: '<rootDir>/__tests__/setup/teardown.js',
   
     // A set of global variables that need to be available in all test environments
     // globals: {},
@@ -126,13 +126,13 @@ module.exports = {
     // setupFiles: [],
   
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    setupFilesAfterEnv: ['<rootDir>/__tests__/setupAfterEnv.js'],
+    setupFilesAfterEnv: ['<rootDir>/__tests__/setup/setupAfterEnv.js'],
   
     // A list of paths to snapshot serializer modules Jest should use for snapshot testing
     // snapshotSerializers: [],
   
     // The test environment that will be used for testing
-    testEnvironment: '<rootDir>/__tests__/environment.js',
+    testEnvironment: '<rootDir>/__tests__/setup/environment.js',
   
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},
@@ -182,4 +182,6 @@ module.exports = {
   
     // Whether to use watchman for file crawling
     // watchman: true,
+
+    testResultsProcessor:  "jest-sonar-reporter"
   };

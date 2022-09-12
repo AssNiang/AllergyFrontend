@@ -1,11 +1,9 @@
-const NodeEnvironment = require('jest-environment-node');
-
-const MemoryDatabaseServer = require('../config/MemoryDatabaseServer');
+const NodeEnvironment = require('jest-environment-node').default;
+const MemoryDatabaseServer = require('../../config/MemoryDatabaseServer');
 
 class CustomEnvironment extends NodeEnvironment {
   async setup() {
     await super.setup();
-
     this.global.__DB_URL__ = await MemoryDatabaseServer.getConnectionString();
   }
 

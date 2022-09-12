@@ -19,7 +19,7 @@ class MemoryDatabaseServer {
   }
 
   getConnectionString() {
-    return this.mongod.getConnectionString();
+    return this.mongod.getConnectionString;
   }
 }
 

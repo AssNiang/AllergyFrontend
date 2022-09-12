@@ -16,7 +16,7 @@ module.exports.getAllPatientsFiles = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);
     try {
-        await FileModel.find({patientId:req.params.id}, (err, docs) => {
+        FileModel.find({patientId:req.params.id}, (err, docs) => {
         if (!err) res.status(200).send(docs);
         else console.log("Error to get file : " + err);
       });
@@ -28,7 +28,8 @@ module.exports.getAllPatientsFiles = async (req, res) => {
  module.exports.getPatient = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);
-     UserModel.find({is_patient:true, _id:req.params.id}, (err, docs) => {
+
+    UserModel.find({is_patient:true, _id:req.params.id}, (err, docs) => {
         if (!err) res.status(200).send(docs);
         else console.log("Error to get data : " + err);
       });
@@ -36,7 +37,7 @@ module.exports.getAllPatientsFiles = async (req, res) => {
 
 module.exports.getAllPatients = async (req, res) => {
     try {
-        await UserModel.find({is_patient:true}, (err, docs) => {
+        UserModel.find({is_patient:true}, (err, docs) => {
             if (!err) res.status(200).send(docs);
             else console.log("Error to get Patient : " + err);
       });
@@ -49,7 +50,7 @@ module.exports.createAllergyFile = (req, res) => {
     const {postId, posterId, specialistId} = req.body;
   try {
       const allergyFile = new AllergieFileModel({
-        postId:userId, 
+        postId:postId, 
         posterId:posterId, 
         specialistId:specialistId,
         clinic_signature: [],
@@ -67,8 +68,9 @@ module.exports.createAllergyFile = (req, res) => {
 
 
 module.exports.editPatientFile = (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
+    if (!ObjectID.isValid(req.params.id)){
+        return res.status(400).send("ID unknown : " + req.params.id);
+    }
     AllergieFileModel.findByIdAndUpdate(
         req.params.id,
         {
@@ -91,14 +93,15 @@ module.exports.editPatientFile = (req, res) => {
 };
 
 module.exports.deleteFile = (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
+    if (!ObjectID.isValid(req.params.id)) {
       return res.status(400).send("ID unknown : " + req.params.id);
+    }
   
     FileModel.findByIdAndRemove(req.params.id, (err, docs) => {
       if (!err) res.status(200).json({message: "File deleted !"});
       else console.log("Delete error : " + err);
     });
-  };
+};
 
 
 module.exports.follow = (req, res) => {
@@ -125,7 +128,6 @@ module.exports.follow = (req, res) => {
         {$addToSet: {followers: req.params.id}},
         {new: true, upsert: true},
         (err, docs) =>{
-            // if (!err) res.status(200).send(docs);
             if (err) return res.status(400).send(err);
         }    
     );
@@ -140,7 +142,6 @@ module.exports.follow = (req, res) => {
         },
         { new: true, upsert: true, setDefaultsOnInsert: true },
         (err, docs) =>{
-            // if (!err) res.status(200).send(docs);
             if (err) return res.status(400).send(err);
         }    
     );
@@ -169,7 +170,6 @@ module.exports.unfollow = async (req, res) => {
         {$pull: {followers: req.params.id}},
         {new: true, upsert: true},
         (err, docs) =>{
-            // if (!err) res.status(200).send(docs);
             if (err) return res.status(400).send(err);
         }  
         
@@ -186,7 +186,6 @@ module.exports.unfollow = async (req, res) => {
         },
         { new: true, upsert: true, setDefaultsOnInsert: true },
         (err, docs) =>{
-            // if (!err) res.status(200).send(docs);
             if (err) return res.status(400).send(err);
         }    
     );

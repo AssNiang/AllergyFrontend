@@ -1,10 +1,13 @@
 const UserModel = require("../models/user.model");
 const CommentModel = require("../models/comment.model");
+const ObjectID = require("mongoose").Types.ObjectId;
+
 
  
 module.exports.comment = (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
+    if (!ObjectID.isValid(req.params.id)){
+        return res.status(400).send("ID unknown : " + req.params.id);
+      }
 
     const newComment = new CommentModel({
         postId: req.params.id,
@@ -18,35 +21,33 @@ module.exports.comment = (req, res) => {
         return res.status(201).json({comment: newComment});
       } catch (err) {
         return res.status(400).send(err);
-    }
-  };
+      }
+};
    
 module.exports.editComment = (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
+  if (!ObjectID.isValid(req.params.id)){
       return res.status(400).send("ID unknown : " + req.params.id);
-  
-    try {
-      return CommentModel.findById(req.params.id, (err, docs) => {
-        const theComment = docs.comments.find((comment) =>
-          comment._id.equals(req.body.commentId)
-        );
-  
-        if (!theComment) return res.status(404).send("Comment not found");
-        theComment.text = req.body.text;
-  
-        return docs.save((err) => {
-          if (!err) return res.status(200).send(docs);
-          return res.status(500).send(err);
-        });
-      });
-    } catch (err) {
-      return res.status(400).send(err);
-    }
-  };
+  }
+  CommentModel.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: {
+        text: req.body.text,
+      },
+    },
+    { new: true, upsert: true, setDefaultsOnInsert: true },
+    (err, docs) => {
+      if (!err) res.status(200).send(docs);
+      else console.log("Update error : " + err);
+    },
+  );
+};
+
 //get all comments of a post
   module.exports.getPostComments = (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
+    if (!ObjectID.isValid(req.params.id)) {
+      return res.status(400).send("ID unknown : " + req.params.id);
+  }
 
     CommentModel.find({postId:req.params.id}, (err, docs) => {
         if (!err) res.status(200).send(docs);
@@ -56,19 +57,20 @@ module.exports.editComment = (req, res) => {
   };
 
   module.exports.deleteComment = (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
-
-  CommentModel.findByIdAndRemove(req.params.id, (err, docs) => {
-    if (!err) res.status(200).json({message: "commentaire supprime !"});
-    else console.log(" error : " + err);
-  });
+    if (!ObjectID.isValid(req.params.id)){
+      return res.status(400).send("ID unknown : " + req.params.id);
+   }
+    CommentModel.findByIdAndRemove(req.params.id, (err, docs) => {
+      if (!err) res.status(200).json({message: "commentaire supprime !"});
+      else console.log(" error : " + err);
+    });
   };
   
 
 module.exports.likeComment = (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
+    if (!ObjectID.isValid(req.params.id)){
       return res.status(400).send("ID unknown : " + req.params.id);
+    }
   
     try {
       CommentModel.findByIdAndUpdate(
@@ -99,8 +101,9 @@ module.exports.likeComment = (req, res) => {
   };
 
   module.exports.unlikeComment =  (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
+    if (!ObjectID.isValid(req.params.id)){
       return res.status(400).send("ID unknown : " + req.params.id);
+    }
   
     try {
       CommentModel.findByIdAndUpdate(
@@ -130,8 +133,9 @@ module.exports.likeComment = (req, res) => {
   };
 
   module.exports.reportComment =  (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
+    if (!ObjectID.isValid(req.params.id)){
       return res.status(400).send("ID unknown : " + req.params.id);
+    }
   
     try {
        CommentModel.findByIdAndUpdate(
@@ -161,8 +165,9 @@ module.exports.likeComment = (req, res) => {
   };
 
   module.exports.unReportComment =  (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
+    if (!ObjectID.isValid(req.params.id)){
       return res.status(400).send("ID unknown : " + req.params.id);
+    }
   
     try {
       CommentModel.findByIdAndUpdate(
@@ -190,5 +195,5 @@ module.exports.likeComment = (req, res) => {
     } catch (err) {
       return res.status(400).send(err);
     }
-  };
+};
   

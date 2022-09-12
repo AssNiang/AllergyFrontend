@@ -1,21 +1,19 @@
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
-// const { isMobilePhone } = require('validator');
 const uniqueValidator = require('mongoose-unique-validator');
-// const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema(
   {
     first_name: {
       type: String,
-      minLength: 3,
+      minLength: 2,
       maxLength: 55,
       trim: true,
     },
     
     last_name: {
       type: String,
-      minLength: 3,
+      minLength: 2,
       maxLength: 55,
       trim: true,
     },
@@ -124,25 +122,6 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-//play function before save into display: 'block',
-// userSchema.pre("save", async function(next) {
-//   const salt = await bcrypt.genSalt();
-//   this.password = await bcrypt.hash(this.password, salt);
-//   next();
-// });
-
-// userSchema.statics.login = async function(email, password) {
-//   const user = await this.findOne({ email });
-//   if (user) {
-//     const auth = await bcrypt.compare(password, user.password);
-//     if (auth) {
-//       return user;
-//     }
-//     throw Error('incorrect password');
-//   }
-//   throw Error('incorrect email')
-// };
 
 userSchema.plugin(uniqueValidator);
 

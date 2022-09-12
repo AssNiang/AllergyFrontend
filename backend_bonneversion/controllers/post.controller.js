@@ -62,7 +62,7 @@ module.exports.createPublicPost = async (req, res) => {
   });
 
   try {
-    const post = newPost.save()
+    newPost.save()
     return res.status(201).json({post: newPost});
   } catch (err) {
     return res.status(400).send(err);
