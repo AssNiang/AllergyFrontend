@@ -11,9 +11,9 @@ const createToken = (id) => {
     });
 }
 
-module.exports.signUp = (req, res) => {
+module.exports.signUp =  (req, res) => {
     try {
-            bcrypt.hash(req.body.password, 10)
+           bcrypt.hash(req.body.password, 10)
                 .then(
                     hash => {
                         const user = new UserModel({
@@ -25,15 +25,15 @@ module.exports.signUp = (req, res) => {
                             password: hash,
                         });
                         user.save()
-                        .then(() =>res.status(201).json({user: user}))
-                        .catch((error) => res.status(400).send({error}));
+                        .then(() =>res.status(201).send("user:"+ user))
+                        .catch((error) => res.status(400).send(error));
                      }
                  ).catch((err) => {
                     const errors = signUpErrors(err);
-                    res.status(200).send({errors});
+                    res.status(200).send(errors);
                 });
          }catch(err){
-            res.status(200).send({err});
+            res.status(200).send(err);
         }
 } ;
 module.exports.signIn= async (req, res ) => {
@@ -46,7 +46,7 @@ module.exports.signIn= async (req, res ) => {
             if (auth) {
                 const token = createToken(user._id);
                 res.cookie('jwt', token, {httpOnly: true, maxAge});
-                return res.status(200).json({id: user._id}); 
+                return res.status(200).send("id:" + user._id); 
             }
             throw Error('incorrect password');
 
@@ -54,7 +54,7 @@ module.exports.signIn= async (req, res ) => {
         throw Error('incorrect email')
     } catch(err){
         const errors = signInErrors(err);
-        res.status(200).send({errors});
+        res.status(200).send(errors);
     } 
 } 
 

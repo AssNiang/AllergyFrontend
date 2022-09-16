@@ -3,8 +3,8 @@ const ObjectID = require('mongoose').Types.ObjectId;
 
 module.exports.getAllUsers = async (req, res, next) => {
     UserModel.find((err, docs) => {
-      if (!err) res.status(200).send(docs);
-      else console.log(" error: " + err);
+      if (!err) return res.status(200).send(docs);
+      else  return res.status(400).send("Not found: " + err);
     }).select("-password");
 };
 
@@ -15,7 +15,7 @@ module.exports.userInfos = (req, res) => {
   
   UserModel.findById(req.params.id, (err, docs) => {
     if (!err) res.status(200).send(docs);
-    else console.log("ID unknown : " + err);
+    else return res.status(400).send("ID UNKNOWN : " + err);
   }).select("-password");
 };
 
@@ -40,10 +40,10 @@ module.exports.updateUser = (req, res) => {
       { new: true, upsert: true, setDefaultsOnInsert: true },
       (err, docs) => {
         if (!err) return res.status(200).send(docs);
-        else return res.status(500).send({ message: err });
+        else return res.status(500).send("message:" +  err );
       });
     } catch (err) {
-      return res.status(500).json({ message: err });
+      return res.status(500).send("message:"+ err );
     }
   };
 
@@ -52,7 +52,7 @@ module.exports.deleteUser = async (req, res)=>{
       return res.status(400).send('ID unknown :', req.params.id);
   } try {
     UserModel.deleteOne({_id:req.params.id});
-    res.status(200).json({message:"Successfully deleted !"});
+    return res.status(200).send("message:Successfully deleted !");
   }catch(err){
     return res.status(500).json({message: err});
   }

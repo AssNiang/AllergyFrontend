@@ -19,42 +19,42 @@ module.exports.getUserPosts =(req, res) => {
     return res.status(400).send("ID unknown : " + req.params.id);
 
   PostModel.find({posterId:req.params.id}, (err, docs) => {
-    if (!err) res.send(docs);
+    if (!err) res.status(200).send(docs);
     else console.log("Error to get data : " + err);
   }).sort({ createdAt: -1 });
 };
 
 module.exports.createPublicPost = async (req, res) => {
-  let fileName;
+  // let fileName;
 
-  if (req.file !== null) {
-    try {
-      if (
-        req.file.detectedMimeType != "image/jpg" &&
-        req.file.detectedMimeType != "image/png" &&
-        req.file.detectedMimeType != "image/jpeg"
-      )
-        throw Error("invalid file");
+  // if (req.file !== null) {
+  //   try {
+  //     if (
+  //       req.file.detectedMimeType != "image/jpg" &&
+  //       req.file.detectedMimeType != "image/png" &&
+  //       req.file.detectedMimeType != "image/jpeg"
+  //     )
+  //       throw Error("invalid file");
 
-      if (req.file.size > 500000) throw Error("max size");
-    } catch (err) {
-      const errors = uploadErrors(err);
-      return res.status(201).json({ errors });
-    }
-    fileName = req.body.posterId + Date.now() + ".jpg";
+  //     if (req.file.size > 500000) throw Error("max size");
+  //   } catch (err) {
+  //     const errors = uploadErrors(err);
+  //     return res.status(201).json({ errors });
+  //   }
+  //   fileName = req.body.posterId + Date.now() + ".jpg";
 
-    await pipeline(
-      req.file.stream,
-      fs.createWriteStream(
-        `${__dirname}/../client/public/uploads/posts/${fileName}`
-      )
-    );
-  }
+  //   await pipeline(
+  //     req.file.stream,
+  //     fs.createWriteStream(
+  //       `${__dirname}/../client/public/uploads/posts/${fileName}`
+  //     )
+  //   );
+  // }
 
   const newPost = new PostModel({
     posterId: req.body.posterId,
     message: req.body.message,
-    picture: req.file !== null ? "./uploads/posts/" + fileName : "",
+    // picture: req.file !== null ? "./uploads/posts/" + fileName : "",
     video: req.body.video,
     audio: req.body.audio,
     likers: [],
@@ -62,7 +62,7 @@ module.exports.createPublicPost = async (req, res) => {
   });
 
   try {
-    await newPost.save()
+     newPost.save()
     return res.status(201).send(newPost);
   } catch (err) {
     return res.status(400).send(err);
@@ -70,44 +70,44 @@ module.exports.createPublicPost = async (req, res) => {
 };
 
 module.exports.createPrivatePost = async (req, res) => {
-  let fileName;
+  // let fileName;
 
-  if (req.file !== null) {
-    try {
-      if (
-        req.file.detectedMimeType != "image/jpg" &&
-        req.file.detectedMimeType != "image/png" &&
-        req.file.detectedMimeType != "image/jpeg"
-      )
-        throw Error("invalid file");
+  // if (req.file !== null) {
+  //   try {
+  //     if (
+  //       req.file.detectedMimeType != "image/jpg" &&
+  //       req.file.detectedMimeType != "image/png" &&
+  //       req.file.detectedMimeType != "image/jpeg"
+  //     )
+  //       throw Error("invalid file");
 
-      if (req.file.size > 500000) throw Error("max size");
-    } catch (err) {
-      const errors = uploadErrors(err);
-      return res.status(201).json({ errors });
-    }
-    fileName = req.body.posterId + Date.now() + ".jpg";
+  //     if (req.file.size > 500000) throw Error("max size");
+  //   } catch (err) {
+  //     const errors = uploadErrors(err);
+  //     return res.status(201).json({ errors });
+  //   }
+  //   fileName = req.body.posterId + Date.now() + ".jpg";
 
-    await pipeline(
-      req.file.stream,
-      fs.createWriteStream(
-        `${__dirname}/../client/public/uploads/posts/${fileName}`
-      )
-    );
-  }
+  //   await pipeline(
+  //     req.file.stream,
+  //     fs.createWriteStream(
+  //       `${__dirname}/../client/public/uploads/posts/${fileName}`
+  //     )
+  //   );
+  // }
 
   const newPost = new PostModel({
     posterId: req.body.posterId,
     message: req.body.message,
     statut: "private",
-    picture: req.file !== null ? "./uploads/posts/" + fileName : "",
+    // picture: req.file !== null ? "./uploads/posts/" + fileName : "",
     video: req.body.video,
     audio: req.body.audio,
     likers: [],
     reporters:[],
   });
   try {
-    await newPost.save()
+    newPost.save()
     const newFiche = new FicheModel({
       postId:newPost._id,
       patientId:req.body.posterId
@@ -133,8 +133,8 @@ module.exports.updatePost = (req, res) => {
     },
     { new: true, upsert: true, setDefaultsOnInsert: true },
     (err, docs) => {
-      if (!err) res.status(200).send(docs);
-      else console.log("Update error : " + err);
+      if (!err) return res.status(200).send(docs);
+      else return res.status(400).send("Update Error : "+err);
     }
   );
 };
@@ -145,7 +145,7 @@ module.exports.deletePost = (req, res) => {
 
   PostModel.findByIdAndRemove(req.params.id, (err, docs) => {
     if (!err) return res.status(200).send("Post supprime !");
-    else console.log("Delete error : " + err);
+    else return res.status(400).send(err);
   });
 };
 
@@ -260,7 +260,7 @@ module.exports.unReportPost =  (req, res) => {
      UserModel.findByIdAndUpdate(
       req.body.id,
       {
-        $pull: { commentReports: req.params.id },
+        $pull: { postReports: req.params.id },
       },
       { new: true },
       (err, docs) => {

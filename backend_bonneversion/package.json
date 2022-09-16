@@ -2,9 +2,9 @@
   "name": "o2a_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": " nodemon server",
+    "start": " nodemon app",
     "lint": "eslint .",
     "sonar": "node sonar-project.js",
     "build": "node server.js",
@@ -57,7 +57,7 @@
     "mongoose": "^6.5.2",
     "mongoose-unique-validator": "^3.1.0",
     "multer": "^2.0.0-rc.1",
-    "nodemon": "^2.0.19",
+    "nodemon": "^2.0.20",
     "validator": "^13.7.0"
   },
   "devDependencies": {

@@ -44,9 +44,9 @@ app.use('/api/user/specialist', specialistRoutes);
 app.use('/api/user/admin', adminRoutes);
 
 
-app.listen(process.env.PORT, ()=> {
+const server = app.listen(process.env.PORT || 3000, ()=> {
   console.log(`Listening on port ${process.env.PORT}`);
 });
 
 
-module.exports = app;
+module.exports = {server};

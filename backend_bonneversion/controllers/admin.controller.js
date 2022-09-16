@@ -32,7 +32,7 @@ module.exports.createSpecialist = async (req, res) => {
         ); 
       specialist.save()
       .then(() => {  return res.status(201).json({id: req.body.userId});})
-      .catch(err => res.status(500).send({ message: err }));
+      .catch(err => res.status(500).send(" message:" + err ));
      
   }
   catch(err){
@@ -43,51 +43,50 @@ module.exports.createSpecialist = async (req, res) => {
 module.exports.getReportedPosts = (req, res) => {
     PostModel.find({reporters:{$size:1}}, (err, docs) => {
         if (!err) return res.status(200).send(docs);
-        else console.log("Error to get data : " + err);
+        else return  res.status(400).send("Error to get data : " + err);
       });
     
 };
 
-module.exports.getRetiredAccounts = async (req, res, next) => {
+module.exports.getRetiredAccounts = async (req, res) => {
   UserModel.find({is_locked:true}, (err, docs) => {
     if (!err) res.status(200).send(docs);
-    else console.log("Error to get data : " + err);
+    else return  res.status(400).send("Error to get data : " + err);
   });
-  next();
 };
 
-module.exports.getAllAccounts = async (req, res, next) => {
-  const users = UserModel.find().select('-password');
-  res.status(200).json({users});
-  next();
+module.exports.getAllAccounts = async (req, res) => {
+  UserModel.find((err, docs) => {
+    if (!err) return res.status(200).send(docs);
+    else return  res.status(400).send("Error to get data : " + err);
+  }).select('-password');
 };
 
-module.exports.getNoRetiredAccounts = async (req, res, next) => {
+module.exports.getNoRetiredAccounts = async (req, res) => {
   UserModel.find({is_locked:false}, (err, docs) => {
     if (!err) return res.status(200).send(docs);
-    else console.log("Error to get data : " + err);
+    else return  res.status(400).send("Error to get data : " + err);
   });
   next();
 };
 
-module.exports.getPatients = async (req, res, next) => {
+module.exports.getPatients = async (req, res) => {
   UserModel.find({is_patient:true}, (err, docs) => {
     if (!err) return res.status(200).send(docs);
-    else console.log("Error to get data : " + err);
+    else return  res.status(400).send("Error to get data : " + err);
   });
-  next();
 };
 
 module.exports.getFollowedPatients = async (req, res) => {
   UserModel.find({is_patient:true, followers:{$size:1}}, (err, docs) => {
     if (!err) return res.status(200).send(docs);
-    else console.log("Error to get data : " + err);
+    else return  res.status(400).send("Error to get data : " + err);
   }); 
 };
 
 module.exports.getUnFollowedPatients = async (req, res) => {
   UserModel.find({is_patient:true, followers:{$size:0}}, (err, docs) => {
     if (!err) return res.status(200).send(docs);
-    else console.log("Error to get data : " + err);
+    else return  res.status(400).send("Error to get data : " + err);
   });
 };

@@ -18,7 +18,7 @@ module.exports.comment = (req, res) => {
       });
       try {
         newComment.save()
-        return res.status(201).json({comment: newComment});
+        return res.status(201).send("comment:"+ newComment);
       } catch (err) {
         return res.status(400).send(err);
       }
@@ -37,8 +37,8 @@ module.exports.editComment = (req, res) => {
     },
     { new: true, upsert: true, setDefaultsOnInsert: true },
     (err, docs) => {
-      if (!err) res.status(200).send(docs);
-      else console.log("Update error : " + err);
+      if (!err) return res.status(200).send(docs);
+      return res.status(400).send("Update Error: "+err);
     },
   );
 };
@@ -50,8 +50,8 @@ module.exports.editComment = (req, res) => {
   }
 
     CommentModel.find({postId:req.params.id}, (err, docs) => {
-        if (!err) res.status(200).send(docs);
-        else console.log("Error to get data : " + err);
+        if (!err) return res.status(200).send(docs);
+        else return res.status(400).send("Error to get data: "+err);
       }).sort({ createdAt: -1 });
 
   };
@@ -61,8 +61,8 @@ module.exports.editComment = (req, res) => {
       return res.status(400).send("ID unknown : " + req.params.id);
    }
     CommentModel.findByIdAndRemove(req.params.id, (err, docs) => {
-      if (!err) res.status(200).json({message: "commentaire supprime !"});
-      else console.log(" error : " + err);
+      if (!err) return res.status(200).json({message: "commentaire supprime !"});
+      else return res.status(400).send("Error : " + err);
     });
   };
   
@@ -91,7 +91,7 @@ module.exports.likeComment = (req, res) => {
         },
         { new: true },
         (err, docs) => {
-          if (!err) res.status(200).send(docs);
+          if (!err) return res.status(200).send(docs);
           else return res.status(400).send(err);
         }
       );
@@ -155,7 +155,7 @@ module.exports.likeComment = (req, res) => {
         },
         { new: true },
         (err, docs) => {
-          if (!err) res.status(200).send(docs);
+          if (!err) return res.status(200).send(docs);
           else return res.status(400).send(err);
         }
       );
@@ -188,7 +188,7 @@ module.exports.likeComment = (req, res) => {
         },
         { new: true },
         (err, docs) => {
-          if (!err) res.status(200).send(docs);
+          if (!err) return res.status(200).send(docs);
           else return res.status(400).send(err);
         }
       );

@@ -5,7 +5,7 @@ const commentController = require('../controllers/comment.controller');
 // comments
 router.post('/:id', commentController.comment);
 router.get('/:id', commentController.getPostComments);
-router.patch('/edit-comment/:id', commentController.editComment);
+router.put('/edit-comment/:id', commentController.editComment);
 router.delete('/delete-comment/:id', commentController.deleteComment);
 router.patch('/like-comment/:id', commentController.likeComment);
 router.patch('/unlike-comment/:id', commentController.unlikeComment);

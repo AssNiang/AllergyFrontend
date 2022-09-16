@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.47% </span>
+                <span class="strong">61.76% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/34</span>
+                <span class='fraction'>21/34</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.47% </span>
+                <span class="strong">61.76% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/34</span>
+                <span class='fraction'>21/34</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -140,20 +140,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,24 +165,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,12 +202,12 @@ const createToken = <span class="fstat-no" title="function not covered" >(i</spa
     });
 }
 &nbsp;
-module.exports.signUp = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >            bcrypt.hash(req.body.password, 10)</span>
+module.exports.signUp =  (req, res) =&gt; {
+    try {
+           bcrypt.hash(req.body.password, 10)
                 .then(
-<span class="fstat-no" title="function not covered" >                    ha</span>sh =&gt; {
-                        const user = <span class="cstat-no" title="statement not covered" >new UserModel({</span>
+                    hash =&gt; {
+                        const user = new UserModel({
                             last_name: req.body.last_name,
                             first_name: req.body.first_name,
                             address: req.body.address,
@@ -215,37 +215,37 @@ module.exports.signUp = <span class="fstat-no" title="function not covered" >(r<
                             user_name: req.body.user_name,
                             password: hash,
                         });
-<span class="cstat-no" title="statement not covered" >                        user.save()</span>
-                        .then(<span class="fstat-no" title="function not covered" >()</span> =&gt;<span class="cstat-no" title="statement not covered" >res.status(201).json({user: user}))</span>
-                        .catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; <span class="cstat-no" title="statement not covered" >res.status(400).send({error}))</span>;
+                        user.save()
+                        .then(() =&gt;res.status(201).send("user:"+ user))
+                        .catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; <span class="cstat-no" title="statement not covered" >res.status(400).send(error))</span>;
                      }
                  ).catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
                     const errors = <span class="cstat-no" title="statement not covered" >signUpErrors(err);</span>
-<span class="cstat-no" title="statement not covered" >                    res.status(200).send({errors});</span>
+<span class="cstat-no" title="statement not covered" >                    res.status(200).send(errors);</span>
                 });
          }catch(err){
-<span class="cstat-no" title="statement not covered" >            res.status(200).send({err});</span>
+<span class="cstat-no" title="statement not covered" >            res.status(200).send(err);</span>
         }
 } ;
-module.exports.signIn= <span class="fstat-no" title="function not covered" >as</span>ync (req, res ) =&gt; {
-    const {email, password} = <span class="cstat-no" title="statement not covered" >req.body;</span>
+module.exports.signIn= async (req, res ) =&gt; {
+    const {email, password} = req.body;
     
-<span class="cstat-no" title="statement not covered" >    try {</span>
-        const user = <span class="cstat-no" title="statement not covered" >UserModel.findOne({ email:email });</span>
-<span class="cstat-no" title="statement not covered" >        if (user) {</span>
-            const auth = <span class="cstat-no" title="statement not covered" >await bcrypt.compare(password, user.password);</span>
+    try {
+        const user = UserModel.findOne({ email:email });
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (user) {
+            const auth = await bcrypt.compare(password, user.password);
 <span class="cstat-no" title="statement not covered" >            if (auth) {</span>
                 const token = <span class="cstat-no" title="statement not covered" >createToken(user._id);</span>
 <span class="cstat-no" title="statement not covered" >                res.cookie('jwt', token, {httpOnly: true, maxAge});</span>
-<span class="cstat-no" title="statement not covered" >                return res.status(200).json({id: user._id}); </span>
+<span class="cstat-no" title="statement not covered" >                return res.status(200).send("id:" + user._id); </span>
             }
 <span class="cstat-no" title="statement not covered" >            throw Error('incorrect password');</span>
 &nbsp;
         }
 <span class="cstat-no" title="statement not covered" >        throw Error('incorrect email')</span>
     } catch(err){
-        const errors = <span class="cstat-no" title="statement not covered" >signInErrors(err);</span>
-<span class="cstat-no" title="statement not covered" >        res.status(200).send({errors});</span>
+        const errors = signInErrors(err);
+        res.status(200).send(errors);
     } 
 } 
 &nbsp;
@@ -259,7 +259,7 @@ module.exports.logout = <span class="fstat-no" title="function not covered" >(r<
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-15T21:55:18.723Z
+                at 2022-09-16T22:40:18.499Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

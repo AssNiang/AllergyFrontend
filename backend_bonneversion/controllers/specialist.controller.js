@@ -7,8 +7,8 @@ const ObjectID = require("mongoose").Types.ObjectId;
 
 module.exports.getAllPatientsFiles = async (req, res) => {
     FileModel.find((err, docs) => {
-        if (!err) res.status(200).send(docs);
-        else console.log("Error to get file : " + err);
+        if (!err) return res.status(200).send(docs);
+        else return res.status(400).send("Error to get file: "+err);
       });
  };
 
@@ -18,7 +18,7 @@ module.exports.getAllPatientsFiles = async (req, res) => {
     try {
         FileModel.find({patientId:req.params.id}, (err, docs) => {
         if (!err) res.status(200).send(docs);
-        else console.log("Error to get file : " + err);
+        else return res.status(400).send("Error to get file: "+err);
       });
     } catch (err) {
         console.log("Error to get file : " + err);
@@ -31,7 +31,7 @@ module.exports.getAllPatientsFiles = async (req, res) => {
 
     UserModel.find({is_patient:true, _id:req.params.id}, (err, docs) => {
         if (!err) res.status(200).send(docs);
-        else console.log("Error to get data : " + err);
+        else return res.status(400).send("Error to get data: "+err);
       });
  };
 
@@ -39,7 +39,7 @@ module.exports.getAllPatients = async (req, res) => {
     try {
         UserModel.find({is_patient:true}, (err, docs) => {
             if (!err) res.status(200).send(docs);
-            else console.log("Error to get Patient : " + err);
+            else return res.status(400).send("Error to get patient: "+err);
       });
     } catch(err){
         console.log("Error to get Patient : " + err);
@@ -87,7 +87,7 @@ module.exports.editPatientFile = (req, res) => {
         { new: true, upsert: true, setDefaultsOnInsert: true },
         (err, docs) => {
             if (!err) return res.status(200).send(docs);
-            else console.log("Update error : " + err);
+            else return res.status(400).send("Update error: "+err);
         }
     );
 };
@@ -99,7 +99,7 @@ module.exports.deleteFile = (req, res) => {
   
     FileModel.findByIdAndRemove(req.params.id, (err, docs) => {
       if (!err) return res.status(200).send("message: File deleted !");
-      else console.log("Delete error : " + err);
+      else return res.status(400).send("Delete error: "+err);
     });
 };
 
@@ -114,8 +114,7 @@ module.exports.follow = (req, res) => {
             {$addToSet: {followings: req.body.idToFollow}},
             {new: true, upsert: true},
             (err, docs) =>{
-                if (!err) res.status(200).send(docs);
-                else res.status(400).send(err);
+                if (err) return res.status(400).send(err);
             }    
         );
     //add following list
@@ -142,11 +141,12 @@ module.exports.follow = (req, res) => {
         },
         { new: true, upsert: true, setDefaultsOnInsert: true },
         (err, docs) =>{
-            if (err) return res.status(400).send(err);
+            if (!err) res.status(200).send(docs);
+            else return res.status(400).send(err);
         }    
     );
     } catch(err){
-        return res.status(500).json({message: err});
+        return res.status(500).send("message:" + err);
     }
 };
 
@@ -160,8 +160,7 @@ module.exports.unfollow = async (req, res) => {
             {$pull: {followings: req.body.idToUnFollow}},
             {new: true, upsert: true},
             (err, docs) =>{
-                if (!err) res.status(200).send(docs);
-                else return res.status(400).send(err);
+                if (err) return res.status(400).send(err);
             }    
         );
     //remove to following list
@@ -186,7 +185,8 @@ module.exports.unfollow = async (req, res) => {
         },
         { new: true, upsert: true, setDefaultsOnInsert: true },
         (err, docs) =>{
-            if (err) return res.status(400).send(err);
+            if (!err) return res.status(400).send(docs);
+            else return res.status(400).send(err);
         }    
     );
 

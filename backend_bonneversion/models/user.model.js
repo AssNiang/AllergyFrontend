@@ -89,7 +89,7 @@ const userSchema = new mongoose.Schema(
       default: false
     },
     
-    postikes: {
+    postLikes: {
       type : [String]
     },
     commentLikes: {
