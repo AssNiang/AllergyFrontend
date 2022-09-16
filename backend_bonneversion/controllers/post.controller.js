@@ -62,8 +62,8 @@ module.exports.createPublicPost = async (req, res) => {
   });
 
   try {
-    newPost.save()
-    return res.status(201).json({post: newPost});
+    await newPost.save()
+    return res.status(201).send(newPost);
   } catch (err) {
     return res.status(400).send(err);
   }
@@ -107,7 +107,7 @@ module.exports.createPrivatePost = async (req, res) => {
     reporters:[],
   });
   try {
-    newPost.save()
+    await newPost.save()
     const newFiche = new FicheModel({
       postId:newPost._id,
       patientId:req.body.posterId
@@ -144,7 +144,7 @@ module.exports.deletePost = (req, res) => {
     return res.status(400).send("ID unknown : " + req.params.id);
 
   PostModel.findByIdAndRemove(req.params.id, (err, docs) => {
-    if (!err) res.status(200).json({message: "Post supprime !"});
+    if (!err) return res.status(200).send("Post supprime !");
     else console.log("Delete error : " + err);
   });
 };
@@ -171,7 +171,7 @@ module.exports.likePost = (req, res) => {
       },
       { new: true },
       (err, docs) => {
-        if (!err) res.status(200).send(docs);
+        if (!err) return res.status(200).send(docs);
         else return res.status(400).send(err);
       }
     );
@@ -202,7 +202,7 @@ module.exports.unlikePost =  (req, res) => {
       },
       { new: true },
       (err, docs) => {
-        if (!err) res.status(200).send(docs);
+        if (!err) return res.status(200).send(docs);
         else return res.status(400).send(err);
       }
     );
@@ -233,7 +233,7 @@ module.exports.reportPost =  (req, res) => {
       },
       { new: true },
       (err, docs) => {
-        if (!err) res.status(200).send(docs);
+        if (!err) return res.status(200).send(docs);
         else return res.status(400).send(err);
       }
     );

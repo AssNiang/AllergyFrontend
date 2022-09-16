@@ -37,12 +37,16 @@ app.get('/jwtid', requiredAuth, (req, res) => {
 });
   
 //routes
-app.use('/api/user', userRoutes);
+app.use('/api/user', userRoutes); 
 app.use('/api/post', postRoutes);
 app.use('/api/comment', commentRoutes);
 app.use('/api/user/specialist', specialistRoutes);
 app.use('/api/user/admin', adminRoutes);
 
+
+app.listen(process.env.PORT, ()=> {
+  console.log(`Listening on port ${process.env.PORT}`);
+});
 
 
 module.exports = app;

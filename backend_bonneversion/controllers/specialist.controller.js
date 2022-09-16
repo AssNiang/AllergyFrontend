@@ -58,8 +58,8 @@ module.exports.createAllergyFile = (req, res) => {
       });
       
       allergyFile.save()
-      .then(() => {  return res.status(201).json({id: _id});})
-      .catch(err => res.status(500).send({ message: err }));
+      .then(() => {  return res.status(201).send("id: "+_id);})
+      .catch(err => res.status(500).send( "Error:" + err ));
   }
   catch(err){
       res.status(400).send({err});
@@ -86,7 +86,7 @@ module.exports.editPatientFile = (req, res) => {
         },
         { new: true, upsert: true, setDefaultsOnInsert: true },
         (err, docs) => {
-            if (!err) res.status(200).send(docs);
+            if (!err) return res.status(200).send(docs);
             else console.log("Update error : " + err);
         }
     );
@@ -98,7 +98,7 @@ module.exports.deleteFile = (req, res) => {
     }
   
     FileModel.findByIdAndRemove(req.params.id, (err, docs) => {
-      if (!err) res.status(200).json({message: "File deleted !"});
+      if (!err) return res.status(200).send("message: File deleted !");
       else console.log("Delete error : " + err);
     });
 };
@@ -191,7 +191,7 @@ module.exports.unfollow = async (req, res) => {
     );
 
     } catch(err){
-        return res.status(500).json({message: err});
+        return res.status(500).send(err);
     }
 };
 
